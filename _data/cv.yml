@@ -2,96 +2,85 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Arastun Mammadli
+    - name: Address
+      value: Exhibition Rd, South Kensington, London SW7 2AZ
+    - name: Email
+      value: arastun.mammadli24@imperial.ac.uk
+    - name: Phone
+      value: +44(0)7354997309
+    - name: LinkedIn
+      value: linkedin.com/in/arastun-mammadli
+    - name: GitHub
+      value: github.com/ArastunM
     - name: Languages
-      value: English, German
+      value: English, Azerbaijani, Russian, Turkish (Fluent); Spanish (Limited Working Proficiency)
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: MSc Applied Computational Science and Engineering
+      institution: Imperial College London
+      year: Sept 2024 – Sept 2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - On track for a Distinction - predicted grades: A, A*
+        - Modules: Computational Mathematics, Deep Learning, Data Science & Machine Learning
+    - title: BSc Computer Science
+      institution: University of Exeter
+      year: Sept 2020 – May 2024
       description:
-        - Description 1.
-        - Description 2.
+        - First-Class Honours
+        - Dean’s list for Year 1 (84%)
+    - title: International Baccalaureate Diploma
+      institution: Dunya IB School, Azerbaijan
+      year: Sept 2018 – May 2020
+      description:
+        - Grade: 40
+        - Extended Essay on Computer Science (Genetic Algorithms)
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Computational Data Science Project
+      institution: Imperial College London, UK
+      year: Winter 2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Developed DL (U-Net, Conv-LSTM) models for real-time lightning storm prediction.
+        - Processed and analyzed satellite imagery and time-series data.
+        - Built predictive models for VIL frame forecasting and lightning flash prediction.
+        - Strengthened expertise in deep learning, time-series analysis, and scientific computing.
+    - title: Applying Computational Science Project
+      institution: Imperial College London, UK
+      year: Autumn 2024
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - Developed an airburst impact simulation model with optimized parameters.
+        - Implemented a nonlinear solver using the bisection method for robust calculations.
+        - Designed a bounding box algorithm for efficient postcode and population impact analysis.
+        - Automated testing and CI/CD integration to ensure code reliability.
+        - Strengthened expertise in numerical methods, optimization, and scientific computing.
+    - title: Software Developer Internship
+      institution: EMBAWOOD LLC, Baku, Azerbaijan
+      year: Summer 2023
       description:
+        - Developed and maintained Java-based applications using the Spring Framework.
+        - Debugged and optimized existing code to improve system performance.
+        - Collaborated with cross-functional teams to deliver software solutions on time.
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
+- title: Skills
+  type: map
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - name: Programming Languages
+      value: Python, C++, C, Java
+    - name: Technologies
+      value: JetBrains IDEs, Visual Studio, Git, React, Django
 
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
-
-- title: Other Interests
+- title: Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - Competitive Programming
+    - Boxing
+    - Research in AI, ML, and Scientific Computing
+
+- title: References
+  type: text
+  contents: "Available upon request"

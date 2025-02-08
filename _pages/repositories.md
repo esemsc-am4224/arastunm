@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /repositories/
-title: repositories
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
+title: Repositories
+description: GitHub repositories of [me](https://github.com/esemsc-am4224) and [Ada Lovelace Academy](https://github.com/ese-ada-lovelace-2024) at ICL
 nav: true
 nav_order: 4
 ---

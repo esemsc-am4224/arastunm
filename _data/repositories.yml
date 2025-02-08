@@ -1,14 +1,9 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - esemsc-am4224
+  - ese-ada-lovelace-2024
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - arastunm
+  - git-tutorial
