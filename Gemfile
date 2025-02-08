@@ -4,6 +4,7 @@ gem 'jekyll'
 
 # Core plugins that directly affect site building
 group :jekyll_plugins do
+    gem 'jekyll-archives'
     gem 'jekyll-email-protect'
     gem 'jekyll-feed'
     gem 'jekyll-get-json'
@@ -20,6 +21,8 @@ group :jekyll_plugins do
     gem 'jekyll-toc'
     gem 'jekyll-twitter-plugin'
     gem 'jemoji'
+
+    gem 'classifier-reborn'  # used for content categorization during the build
 end
 
 # Gems for development or external data fetching (outside :jekyll_plugins)
