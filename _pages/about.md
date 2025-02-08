@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: MSc Student at <a href='https://profiles.imperial.ac.uk/t.birdal'>Imperial College London</a>.
+subtitle: MSc Student at <a href='https://www.imperial.ac.uk'>Imperial College London</a>.
 
 profile:
   align: right
@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-MSc Applied Computational Science and Engineering student at [Imperial College London](https://www.imperial.ac.uk), specialising in applied
+MSc Applied Computational Science and Engineering student, specialising in applied
 AI, machine learning, and deep learning for real-world challenges. As part of the Earth Science and Engineering
 department, I work with extensive environmental data, and have access to one of the largest research groups in
 the university; [Applied Modelling & Computation Group (AMGC)](https://www.imperial.ac.uk/earth-science/research/research-groups/amcg/).
