@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-repositories",
           title: "Repositories",
-          description: "GitHub repositories of [me](https://github.com/esemsc-am4224) and [Ada Lovelace Academy](https://github.com/ese-ada-lovelace-2024) at ICL",
+          description: "GitHub repositories of me and Ada Lovelace Academy at ICL.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/arastunm/repositories/";
@@ -36,13 +36,6 @@ ninja.data = [{
           section: "Navigation",
           handler: () => {
             window.location.href = "/arastunm/cv/";
-          },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Materials for courses you taught. Replace this text with your description.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/arastunm/teaching/";
           },
         },{id: "dropdown-publications",
               title: "Publications",
@@ -118,13 +111,6 @@ ninja.data = [{
           window.open("https://github.com/esemsc-am4224", "_blank");
         },
       },{
-        id: 'social-inspire',
-        title: 'Inspire HEP',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://inspirehep.net/authors/1010907", "_blank");
-        },
-      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
@@ -137,20 +123,6 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("/arastunm//feed.xml", "_blank");
-        },
-      },{
-        id: 'social-scholar',
-        title: 'Google Scholar',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
-        },
-      },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://www.alberteinstein.com/", "_blank");
         },
       },{
       id: 'light-theme',
