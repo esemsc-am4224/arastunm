@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-repositories",
           title: "Repositories",
-          description: "GitHub repositories of me and Ada Lovelace Academy at ICL.",
+          description: "GitHub repositories of my personal account and me at Ada Lovelace Academy, ICL.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/arastunm/repositories/";
@@ -102,6 +102,13 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://www.linkedin.com/in/arastun-mammadli-068ab0228", "_blank");
+        },
+      },{
+        id: 'social-web_of_science',
+        title: 'Web_of_science',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.webofscience.com/wos/author/record/LXW-2761-2024", "_blank");
         },
       },{
       id: 'light-theme',
