@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: Repositories
-description: GitHub repositories of <strong><a href='https://github.com/esemsc-am4224'>me</a></strong> and <strong><a href='https://github.com/ese-ada-lovelace-2024'>Ada Lovelace Academy</a></strong> at ICL.
+description: GitHub repositories of my <strong><a href='https://github.com/ArastunM'>personal account</a></strong> and <strong><a href='https://github.com/esemsc-am4224'>me</a></strong> at Ada Lovelace Academy</a></strong>, ICL.
 nav: true
 nav_order: 4
 ---
