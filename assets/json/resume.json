@@ -27,47 +27,6 @@
       }
     ]
   },
-  "experience": [
-    {
-      "name": "Imperial College London",
-      "position": "Computational Data Science Project",
-      "url": "",
-      "startDate": "2025-01-01",
-      "endDate": "2025-03-01",
-      "summary": "Developed machine learning models for real-time lightning storm prediction.",
-      "highlights": [
-        "Developed DL (U-Net, Conv-LSTM) models for storm prediction",
-        "Processed and analyzed satellite imagery and time-series data",
-        "Built predictive models for VIL frame forecasting and lightning flash prediction"
-      ]
-    },
-    {
-      "name": "Imperial College London",
-      "position": "Applying Computational Science Project",
-      "url": "",
-      "startDate": "2024-09-01",
-      "endDate": "2024-12-01",
-      "summary": "Developed an airburst impact simulation model with optimized parameters.",
-      "highlights": [
-        "Implemented a nonlinear solver using the bisection method",
-        "Designed a bounding box algorithm for efficient postcode and population impact analysis",
-        "Automated testing and CI/CD integration for reliability"
-      ]
-    },
-    {
-      "name": "EMBAWOOD LLC",
-      "position": "Software Developer Intern",
-      "url": "",
-      "startDate": "2023-06-01",
-      "endDate": "2023-08-01",
-      "summary": "Developed and maintained Java-based applications using the Spring Framework.",
-      "highlights": [
-        "Debugged and optimized existing code",
-        "Collaborated with cross-functional teams",
-        "Enhanced software development workflows"
-      ]
-    }
-  ],
   "education": [
     {
       "institution": "Imperial College London",
@@ -105,6 +64,47 @@
       "score": "Grade: 40",
       "courses": [
         "Extended Essay on Computer Science (Genetic Algorithms)"
+      ]
+    }
+  ],
+  "work": [
+    {
+      "name": "Imperial College London",
+      "position": "Computational Data Science Project",
+      "url": "",
+      "startDate": "2025-01-01",
+      "endDate": "2025-03-01",
+      "summary": "Developed machine learning models for real-time lightning storm prediction.",
+      "highlights": [
+        "Developed DL (U-Net, Conv-LSTM) models for storm prediction",
+        "Processed and analyzed satellite imagery and time-series data",
+        "Built predictive models for VIL frame forecasting and lightning flash prediction"
+      ]
+    },
+    {
+      "name": "Imperial College London",
+      "position": "Applying Computational Science Project",
+      "url": "",
+      "startDate": "2024-09-01",
+      "endDate": "2024-12-01",
+      "summary": "Developed an airburst impact simulation model with optimized parameters.",
+      "highlights": [
+        "Implemented a nonlinear solver using the bisection method",
+        "Designed a bounding box algorithm for efficient postcode and population impact analysis",
+        "Automated testing and CI/CD integration for reliability"
+      ]
+    },
+    {
+      "name": "EMBAWOOD LLC",
+      "position": "Software Developer Intern",
+      "url": "",
+      "startDate": "2023-06-01",
+      "endDate": "2023-08-01",
+      "summary": "Developed and maintained Java-based applications using the Spring Framework.",
+      "highlights": [
+        "Debugged and optimized existing code",
+        "Collaborated with cross-functional teams",
+        "Enhanced software development workflows"
       ]
     }
   ],
