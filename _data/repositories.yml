@@ -1,11 +1,10 @@
 github_users:
   - esemsc-am4224
-
-github_orgs:
-  - ese-ada-lovelace-2024
+  - ArastunM
 
 repo_description_lines_max: 2
 
 github_repos:
-  - arastunm
-  - git-tutorial
+  - esemsc-am4224/arastunm
+  - ArastunM/Cloth-Sim
+  - ArastunM/Covid-Contact-Tracing

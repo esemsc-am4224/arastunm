@@ -59,7 +59,7 @@ You can create new pages by adding new Markdown files in the [\_pages](_pages/) 
 
 ## Creating new blog posts
 
-To create a new blog post, you can add a new Markdown file in the [\_posts](_posts/) directory. The [name of the file must follow](https://jekyllrb.com/docs/posts/#creating-posts) the format `YYYY-MM-DD-title.md`. The easiest way to do this is to copy an existing blog post and modify it. Note that some blog posts have optional fields in the [frontmatter](https://jekyllrb.com/docs/front-matter/) that are used to enable specific behaviors or functions.
+To create a new blog post, you can add a new Markdown file in the \_posts directory. The [name of the file must follow](https://jekyllrb.com/docs/posts/#creating-posts) the format `YYYY-MM-DD-title.md`. The easiest way to do this is to copy an existing blog post and modify it. Note that some blog posts have optional fields in the [frontmatter](https://jekyllrb.com/docs/front-matter/) that are used to enable specific behaviors or functions.
 
 If you want to create blog posts that are not ready to be published, but you want to track it with git, you can create a [\_drafts](https://jekyllrb.com/docs/posts/#drafts) directory and store them there.
 
@@ -161,8 +161,6 @@ Since this template have a lot of content, you may want to remove some of it. Th
 ```yml
 excludes:
   - _news/announcement_*.md
-  - _pages/blog.md
-  - _posts/
   - _projects/?_project.md
   - assets/jupyter/blog.ipynb
 ```
@@ -173,20 +171,20 @@ Here is a list of the main components that you may want to delete, and how to do
 
 To remove the blog, you have to:
 
-- delete [\_posts](_posts/) directory
-- delete blog page [\_pages/blog.md](_pages/blog.md)
+- delete \_posts directory
+- delete blog page \_pages/blog.md
 - remove reference to blog page in our [\_pages/dropdown.md](_pages/dropdown.md)
 - remove the `latest_posts` part in [\_pages/about.md](_pages/about.md)
 - remove the `Blog` section in the [\_config.yml](_config.yml) file and the related parts, like the `jekyll-archives`
 
 You can also:
 
-- delete [\_includes/latest_posts.liquid](_includes/latest_posts.liquid)
-- delete [\_includes/related_posts.liquid](_includes/related_posts.liquid)
-- delete [\_layouts/archive-category.liquid](_layouts/archive-category.liquid)
-- delete [\_layouts/archive-tag.liquid](_layouts/archive-tag.liquid)
-- delete [\_layouts/archive-year.liquid](_layouts/archive-year.liquid)
-- delete [\_plugins/external-posts.rb](_plugins/external-posts.rb)
+- delete \_includes/latest_posts.liquid
+- delete \_includes/related_posts.liquid
+- delete \_layouts/archive-category.liquid
+- delete \_layouts/archive-tag.liquid
+- delete \_layouts/archive-year.liquid
+- delete \_plugins/external-posts.rb
 - remove the `jekyll-archives` gem from the [Gemfile](Gemfile) and the `plugins` section in [\_config.yml](_config.yml)
 - remove the `classifier-reborn` gem from the [Gemfile](Gemfile)
 
@@ -194,8 +192,8 @@ You can also:
 
 To remove the news section, you can:
 
-- delete the [\_news](_news/) directory
-- delete the file [\_includes/news.liquid](_includes/news.liquid) and the references to it in the [\_pages/about.md](_pages/about.md)
+- delete the \_news directory
+- delete the file \_includes/news.liquid and the references to it in the [\_pages/about.md](_pages/about.md)
 - remove the `announcements` part in [\_pages/about.md](_pages/about.md)
 - remove the news part in the `Collections` section in the [\_config.yml](_config.yml) file
 

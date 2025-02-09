@@ -29,7 +29,7 @@ linkedin_username: arastun-mammadli-068ab0228 # your LinkedIn user name
 # publons_id: # your ID on Publons
 # quora_username: # your Quora username
 # research_gate_profile: # your profile on ResearchGate
-rss_icon: false # set to true to show the RSS icon
+# rss_icon: false # set to true to show the RSS icon
 # scholar_userid: # your Google Scholar ID
 # scopus_id: # your profile on Scopus
 # semanticscholar_id: # your Semantic Scholar ID
@@ -46,6 +46,6 @@ rss_icon: false # set to true to show the RSS icon
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
 # custom_social: # can be any name here other than the ones already defined above
-# logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
-#  title: Custom Social
-#  url: https://www.alberteinstein.com/
+# logo: web-of-science.png # can be png, svg, jpg
+#  title: Web Of Science
+#  url: https://www.webofscience.com/wos/author/record/LXW-2761-2024
