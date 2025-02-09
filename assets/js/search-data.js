@@ -31,27 +31,13 @@ ninja.data = [{
             window.location.href = "/arastunm/repositories/";
           },
         },{id: "nav-cv",
-          title: "Cv",
+          title: "CV",
           description: "Arastun&#39;s CV",
           section: "Navigation",
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "dropdown-publications",
-              title: "Publications",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "";
-              },
-            },{id: "dropdown-projects",
-              title: "Projects",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "";
-              },
-            },{id: "projects-project-1",
+        },{id: "projects-project-1",
           title: 'project 1',
           description: "with background image",
           section: "Projects",handler: () => {
@@ -116,13 +102,6 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://www.linkedin.com/in/arastun-mammadli-068ab0228", "_blank");
-        },
-      },{
-        id: 'social-rss',
-        title: 'RSS Feed',
-        section: 'Socials',
-        handler: () => {
-          window.open("/arastunm//feed.xml", "_blank");
         },
       },{
       id: 'light-theme',
