@@ -19,7 +19,7 @@ github_username: esemsc-am4224 # your GitHub user name
 # keybase_username: # your keybase user name
 # lastfm_id: # your lastfm id
 # lattes_id: # your ID on Lattes (Brazilian Lattes CV)
-# leetcode_id: arastun # your LeetCode id
+leetcode_id: arastun # your LeetCode id
 linkedin_username: arastun-mammadli-068ab0228 # your LinkedIn user name
 # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 # medium_username: # your Medium username
@@ -45,7 +45,7 @@ linkedin_username: arastun-mammadli-068ab0228 # your LinkedIn user name
 # x_username: # your X handle
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
-web_of_science: # can be any name here other than the ones already defined above
-  logo: /assets/img/clarivate.png # can be png, svg, jpg
-  title: Web Of Science
-  url: https://www.webofscience.com/wos/author/record/LXW-2761-2024
+# web_of_science: # can be any name here other than the ones already defined above
+#   logo: /assets/img/clarivate.png # can be png, svg, jpg
+#   title: Web Of Science
+#   url: https://www.webofscience.com/wos/author/record/LXW-2761-2024
