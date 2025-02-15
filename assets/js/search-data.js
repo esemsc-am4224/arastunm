@@ -97,18 +97,18 @@ ninja.data = [{
           window.open("https://github.com/esemsc-am4224", "_blank");
         },
       },{
+        id: 'social-leetcode',
+        title: 'LeetCode',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://leetcode.com/u/arastun/", "_blank");
+        },
+      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
           window.open("https://www.linkedin.com/in/arastun-mammadli-068ab0228", "_blank");
-        },
-      },{
-        id: 'social-web_of_science',
-        title: 'Web_of_science',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://www.webofscience.com/wos/author/record/LXW-2761-2024", "_blank");
         },
       },{
       id: 'light-theme',
