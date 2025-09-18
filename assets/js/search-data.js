@@ -37,51 +37,36 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "projects-conversational-energy-agents",
-          title: 'Conversational Energy Agents',
-          description: "MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.",
-          section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/1_project/";
-            },},{id: "projects-genetic-programming-for-parkinson-39-s-diagnosis",
-          title: 'Genetic Programming for Parkinson&amp;#39;s Diagnosis',
-          description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
-          section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/2_project/";
-            },},{id: "projects-project-3-with-very-long-name",
-          title: 'project 3 with very long name',
-          description: "a project that redirects to another website",
-          section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/3_project/";
-            },},{id: "projects-project-4",
+        },{id: "projects-project-4",
           title: 'project 4',
           description: "another without an image",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
-          description: "a project with a background image",
+            },},{id: "projects-deep-impact",
+          title: 'Deep Impact',
+          description: "The hazard of small asteroids.",
           section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/5_project/";
-            },},{id: "projects-project-6",
-          title: 'project 6',
-          description: "a project with no image",
+              window.location.href = "/arastunm/projects/acds_1/";
+            },},{id: "projects-storm-prediction",
+          title: 'Storm Prediction',
+          description: "Predicting the unpredictable.",
           section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/6_project/";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
+              window.location.href = "/arastunm/projects/acds_2/";
+            },},{id: "projects-palusznium-rush",
+          title: 'Palusznium Rush',
+          description: "Optimal mineral recovery using a Genetic Algorithm approach.",
           section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/7_project/";
-            },},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
+              window.location.href = "/arastunm/projects/acds_3/";
+            },},{id: "projects-genetic-programming-for-parkinson-39-s-diagnosis",
+          title: 'Genetic Programming for Parkinson&amp;#39;s Diagnosis',
+          description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
           section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/8_project/";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
+              window.location.href = "/arastunm/projects/bsc_final_project/";
+            },},{id: "projects-conversational-energy-agents",
+          title: 'Conversational Energy Agents',
+          description: "MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/9_project/";
+              window.location.href = "/arastunm/projects/msc_thesis/";
             },},{
         id: 'social-email',
         title: 'email',
