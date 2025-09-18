@@ -6,8 +6,10 @@ img: assets/img/12.jpg
 importance: 1
 category: work
 cv_pdf: CV_Gen.pdf
-related_publications: true
+related_publications: false
 ---
+
+
 
 # Conversational Energy Management
 
