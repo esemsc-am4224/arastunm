@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-MSc Applied Computational Science and Engineering student, specialising in applied
-AI, machine learning, and deep learning for real-world challenges. As part of the Earth Science and Engineering
-department, I work with extensive environmental data, and have access to one of the largest research groups in
-the university; [Applied Modelling & Computation Group (AMGC)](https://www.imperial.ac.uk/earth-science/research/research-groups/amcg/).
+An MSc student in Applied Computational Science at Imperial College London focused on practical applications of 
+machine learning, deep learning, and large language models. Interested in scientific machine learning and AI agent 
+orchestrations. My thesis work is on Azure AI Services @ Microsoft, applying emerging agentic frameworks on campus 
+energy management.
