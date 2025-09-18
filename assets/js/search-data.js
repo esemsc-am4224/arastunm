@@ -62,6 +62,11 @@ ninja.data = [{
           description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/bsc_final_project/";
+            },},{id: "projects-cloth-simulator",
+          title: 'Cloth Simulator',
+          description: "C++ SFML based simple 2D cloth simulator.",
+          section: "Projects",handler: () => {
+              window.location.href = "/arastunm/projects/cloth_sim/";
             },},{id: "projects-conversational-energy-agents",
           title: 'Conversational Energy Agents',
           description: "MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.",
