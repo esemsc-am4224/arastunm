@@ -37,9 +37,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+        },{id: "projects-master-39-s-thesis",
+          title: 'Master&amp;#39;s Thesis',
+          description: "conversational multi-agent system for campus energy management",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/1_project/";
             },},{id: "projects-project-2",
