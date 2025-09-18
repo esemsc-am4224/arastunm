@@ -17,8 +17,6 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-## About Me
-
 I am an MSc student in Applied Computational Science at Imperial College London focused on practical applications of 
 machine learning, deep learning, and large language models. My thesis work is on Azure AI Services @ Microsoft, applying emerging agentic frameworks on campus energy management.
 
