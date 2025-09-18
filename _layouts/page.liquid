@@ -44,6 +44,22 @@ layout: default
             <i class="fa-solid fa-file-pdf"></i>
           </a>
         {% endif %}
+
+        {% if page.presentation_pdf %}
+          <a
+            {% if page.presentation_pdf contains '://' %}
+              href="{{ page.presentation_pdf }}"
+            {% else %}
+              href="{{ page.presentation_pdf | prepend: 'assets/pdf/' | relative_url }}"
+            {% endif %}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Poster"
+            class="ml-2"
+          >
+            <i class="fa-solid fa-file-pdf"></i>
+          </a>
+        {% endif %}
       </span>
     </h1>
     <p class="post-description">{{ page.description }}</p>
