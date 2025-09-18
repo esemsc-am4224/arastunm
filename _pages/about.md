@@ -20,4 +20,4 @@ social: true # includes social icons at the bottom of the page
 I am an MSc student in Applied Computational Science at Imperial College London focused on practical applications of 
 machine learning, deep learning, and large language models. My thesis work is on Azure AI Services @ Microsoft, applying emerging agentic frameworks on campus energy management.
 
-I am interested in practical applications of Large Language Models (LLMs) as autonomous agents. In particular, I am interested in exploring the impact prompt engineering, grounding, multi-agent group chat techniques, and the agent workflow design.
+I am interested in using Large Language Models (LLMs) as autonomous agents for interactive decision making. In particular, exploring the impact prompt engineering, grounding, multi-agent group chat techniques, and the agent workflow design.
