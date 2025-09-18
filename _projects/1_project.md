@@ -5,11 +5,13 @@ description: conversational multi-agent system for campus energy management
 img: assets/img/12.jpg
 importance: 1
 category: work
-cv_pdf: CV_Gen.pdf
+cv_pdf: thesis-docs/am4224-final-report.pdf
 related_publications: false
 ---
 
 # Conversational Energy Management
+
+Below is the copy of [Microsoft Educator Developer Blog](https://techcommunity.microsoft.com/blog/educatordeveloperblog/conversational-agents-for-campus-energy-management/4454910). Also see the [research report](../assets/pdf/thesis-docs/am4224-final-report.pdf), and the presented [poster](../assets/pdf/thesis-docs/posternumber26.pdf).
 
 ## Introduction
 
@@ -21,19 +23,23 @@ Finally, we outline the key challenges behind the development process, offering 
 ### Energy Team
 
 1. **Conversational Energy Management (This Blog)**  
-**Arastun Mammadli**\
-![](../assets/img/tech-blog/github.svg) [![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/arastun-mammadli-068ab0228/)
-
+**Arastun Mammadli**, [LinkedIn](https://www.linkedin.com/in/arastun-mammadli-068ab0228/)
 2. **Agent-based Autonomous HVAC Manager**  
-**James Zhong**\
-![](../assets/img/tech-blog/github.svg)[![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/james-zhong-23443818b/)
+**James Zhong**, [LinkedIn](https://www.linkedin.com/in/james-zhong-23443818b/)
 
 ### CONTENT: [Project Overview](#project-overview) • [Project Journey](#project-journey) • [Technical Details](#technical-details) • [Results and Outcomes](#results-and-outcomes) • [Lessons Learned](#lessons-learned) • [Future Development](#future-development) • [Conclusion](#conclusion) • [Call to Action](#call-to-action)
 
 
 ## Project Overview
 
-![Project Development Workflow](../assets/img/tech-blog/development-workflow.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/tech-blog/development-workflow.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Project Development Workflow
+</div>
 
 ### Perspectives: Business and Research
 
@@ -47,7 +53,14 @@ We test our autonomous agents on both technical and creative aspects of campus e
 
 The project intends to develop a conversational energy chatbot that can serve all 3 campus stakeholders (students, faculty, and administrators). Final agentic workflow should be able to handle system-related queries, collect student feedback, and assist administrators in textual and visual prognostics. We outline **3 key objectives**:
 
-![Three Key Objectives](../assets/img/tech-blog/objectives.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/tech-blog/objectives.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Key Project Objectives
+</div>
 
 
 ## Project Journey
@@ -63,8 +76,14 @@ We design a synthetic energy schema by consulting with the internal energy monit
 
 These agents are orchestrated through a coordinator **Triage agent** that conducts composite routing between specialised agents until satisfied with the answer. We also integrate with supplementary Azure AI Language Services (**Custom Question Answering**, **Conversational Language Understanding**), and Azure AI Search for a fallback **RAG**.
 
-![Multi-Agent Orchestration Design](../assets/img/tech-blog/system-design.png)
-
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/tech-blog/system-design.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    System Design
+</div>
 
 ### Challenges in Development
 
@@ -97,27 +116,48 @@ The project was largely written in Python. Alongside we utilise Bicep (a domain 
 
 ### Demo Chart
 
-![Snapshot of System Functionalities](../assets/img/tech-blog/image-demo.png)
-
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/tech-blog/image-demo.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Snapshot of System Functionalities
+</div>
 
 ### Evaluation Results
 
 - **GPT-4o** is the best performing base model for specialised agents. We underscore that larger language models (e..g, Llama-3.3 70B) do not necessarily outperform their smaller counterparts (Gpt-4o mini, Phi4 mini).
 
-<div align=center>
-  <img src="../assets/img/tech-blog/evaluation-results.png" alt="Snapshot of Aggregate Agent Performance Scores" style="width:70%;">
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/tech-blog/evaluation-results.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Snapshot of Aggregate Agent Performance Scores
 </div>
 
 - We find that varying prompt strategies (no prompting, few-shot, ReAct style trajectories) do not have significant influence on agent performance score, but on the response length. We believe in action-based (**Feedback**) agents ReAct trajectories encourage sequential reasoning and action planning leading to better directed workflows and concise responses. Whereas in information-retrieval agents (**CampusInfo**, **AdminInfo**) they lead to more detailed and comprehensive responses.
 
-<div align=center>
-  <img src="../assets/img/tech-blog/evaluation-results2.png" alt="How Prompt Engineering Affects Response Length" style="width:70%;">
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/tech-blog/evaluation-results2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    How Prompt Engineering Affects Response Length
 </div>
 
 - We find through routing ablations that Triage agent plays an important synthesizer role (**no Triage &rarr; over 2x response length**). In the end we decide to use no ablations in the orchestration. This offers the most direct & concise responses without sacrificing on aggregate performance score.
 
-<div align=center>
-  <img src="../assets/img/tech-blog/evaluation-results3.png" alt="Routing Ablations" style="width:70%;">
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/tech-blog/evaluation-results3.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Routing Ablations
 </div>
 
 
