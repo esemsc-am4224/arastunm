@@ -22,7 +22,7 @@ Program provides realistic *tearing* and *moving*/*dragging* of the cloth. The s
 
 ## Prerequisites
 
-The program was developed in [C++14](https://en.cppreference.com/w/cpp/14). Additionally, the [SFML](https://www.sfml-dev.org/) library was used for graphics.
+The program was developed in [C++14](https://en.cppreference.com/w/cpp/14). Additionally, the [SFML](https://www.sfml-dev.org) library was used for graphics.
 
 ## Future Improvements/Sophistications
 

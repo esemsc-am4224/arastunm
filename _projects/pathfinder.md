@@ -27,7 +27,7 @@ Shortest path is found using the principles of [A* search algorithm](https://en.
 
 ## Prerequisites
 
-The program was developed in [C++14](https://en.cppreference.com/w/cpp/14). Additionally, the [SFML](https://www.sfml-dev.org/) library was used for graphics and audio.
+The program was developed in [C++14](https://en.cppreference.com/w/cpp/14). Additionally, the [SFML](https://www.sfml-dev.org) library was used for graphics and audio.
 
 ## Future Improvements/Sophistications
 
