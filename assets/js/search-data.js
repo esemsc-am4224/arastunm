@@ -67,11 +67,21 @@ ninja.data = [{
           description: "C++ SFML based simple 2D cloth simulator.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/cloth_sim/";
+            },},{id: "projects-firework-simulator",
+          title: 'Firework Simulator',
+          description: "C++ based basic graphic firework simulator.",
+          section: "Projects",handler: () => {
+              window.location.href = "/arastunm/projects/firework-sim/";
             },},{id: "projects-conversational-energy-agents",
           title: 'Conversational Energy Agents',
           description: "MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/msc_thesis/";
+            },},{id: "projects-pathfinder",
+          title: 'Pathfinder',
+          description: "C++ based 2D pathfinder simulator.",
+          section: "Projects",handler: () => {
+              window.location.href = "/arastunm/projects/pathfinder/";
             },},{
         id: 'social-email',
         title: 'email',
