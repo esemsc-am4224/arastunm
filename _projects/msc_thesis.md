@@ -2,11 +2,11 @@
 layout: page
 title: Conversational Energy Agents
 description: MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.
-img: assets/img/tech-blog/cover.png
+img: assets/img/project_covers/msc_thesis_cover.png
 importance: 1
-category: work
-report_pdf: thesis-docs/am4224-final-report.pdf
-poster_pdf: thesis-docs/posternumber26.pdf
+category: research
+report_pdf: research-docs/am4224-final-report.pdf
+poster_pdf: research-docs/posternumber26.pdf
 related_publications: false
 ---
 

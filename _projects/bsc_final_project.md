@@ -2,11 +2,11 @@
 layout: page
 title: Genetic Programming for Parkinson's Diagnosis
 description: BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.
-img: assets/img/bsc_project_cover.png
+img: assets/img/project_covers/bsc_project_cover.png
 importance: 2
-category: work
-report_pdf: thesis-docs/ECM3401_Final_Project.pdf
-presentation_pdf: thesis-docs/ECM3401_Presentation.pdf
+category: research
+report_pdf: research-docs/ECM3401_Final_Project.pdf
+presentation_pdf: research-docs/ECM3401_Presentation.pdf
 ---
 
 ## Abstract
