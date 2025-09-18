@@ -22,11 +22,11 @@ Finally, we outline the key challenges behind the development process, offering 
 
 1. **Conversational Energy Management (This Blog)**  
 **Arastun Mammadli**\
-[![](../assets/img/tech-blog/github.svg)](https://github.com/ese-ada-lovelace-2024/irp-microsoft/tree/dev/ema/energy-management/conv-system-energy) [![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/arastun-mammadli-068ab0228/)
+![](../assets/img/tech-blog/github.svg) [![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/arastun-mammadli-068ab0228/)
 
 2. **Agent-based Autonomous HVAC Manager**  
 **James Zhong**\
-[![](../assets/img/tech-blog/github.svg)](https://github.com/ese-ada-lovelace-2024/irp-microsoft/tree/dev/ema/energy-management/hvac_manager) [![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/james-zhong-23443818b/)
+![](../assets/img/tech-blog/github.svg)[![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/james-zhong-23443818b/)
 
 ### CONTENT: [Project Overview](#project-overview) • [Project Journey](#project-journey) • [Technical Details](#technical-details) • [Results and Outcomes](#results-and-outcomes) • [Lessons Learned](#lessons-learned) • [Future Development](#future-development) • [Conclusion](#conclusion) • [Call to Action](#call-to-action)
 
@@ -41,7 +41,7 @@ With many universities committing to net-zero emission targets. Commercially, th
 
 ### Innovation
 
-We test our autonomous agents on both technical and creative aspects of campus energy management. In constrast, past works have focused on technical monitoring-only systems (with traditional AI techniques; [deep reinforcement learning](https://www.sciencedirect.com/science/article/abs/pii/S0306261924007979?casa_token=Yl5RjEpGUj8AAAAA:wqvhKvqWY0AFB6xBk4FY5nw3TnHb4EeJLrZ406QB372q1WFyN14QomRb9m-j8JQ_vTIpT-VVDw#bb0230), [neural networks](https://www.researchgate.net/publication/339039008_A_Multi-Agent_Reinforcement_Learning-Based_Data-Driven_Method_for_Home_Energy_Management)). We leverage emerging frameworks in the Azure ecosystem to showcase a novel integration of specialised agents, NLP services, and a fallback retrieval augmented generation (RAG) system.
+We test our autonomous agents on both technical and creative aspects of campus energy management. In constrast, past works have focused on technical monitoring-only systems (with traditional AI techniques; deep reinforcement learning, neural networks). We leverage emerging frameworks in the Azure ecosystem to showcase a novel integration of specialised agents, NLP services, and a fallback retrieval augmented generation (RAG) system.
 
 ### Objectives
 
@@ -54,7 +54,7 @@ The project intends to develop a conversational energy chatbot that can serve al
 
 ### Design Decisions
 
-We design a synthetic energy schema by consulting with the internal energy monitoring team, and a publicly available institutional energy dataset ([UNICON](https://ieeexplore.ieee.org/document/9869498)). The schema includes a hierarchical campus infrastructure and timeseries of mocked environmental data. We also incorporate an energy feedback container (taking inspiration from the [TherMOOstat](https://facilities.ucdavis.edu/engineering/thermoostat) project) to dynamically manage user feedback. At the core of the multi-agent orchestration, we design 4 specialised agents.
+We design a synthetic energy schema by consulting with the internal energy monitoring team, and a publicly available institutional energy dataset (UNICON). The schema includes a hierarchical campus infrastructure and timeseries of mocked environmental data. We also incorporate an energy feedback container (taking inspiration from the [TherMOOstat](https://facilities.ucdavis.edu/engineering/thermoostat) project) to dynamically manage user feedback. At the core of the multi-agent orchestration, we design 4 specialised agents.
 
 1. **Campus Information** - a generalist information retrieval (IR) agent that answers energy related queries
 2. **Admin Information** - similarly but built for administrators with access to confidential and higher detail data.
