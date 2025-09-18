@@ -37,9 +37,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "projects-master-39-s-thesis",
-          title: 'Master&amp;#39;s Thesis',
-          description: "conversational multi-agent system for campus energy management",
+        },{id: "projects-conversational-energy-agents",
+          title: 'Conversational Energy Agents',
+          description: "MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/1_project/";
             },},{id: "projects-project-2",
