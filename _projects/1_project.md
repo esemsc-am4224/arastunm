@@ -9,8 +9,6 @@ cv_pdf: CV_Gen.pdf
 related_publications: false
 ---
 
-
-
 # Conversational Energy Management
 
 ## Introduction
