@@ -6,7 +6,7 @@ img: assets/img/tech-blog/cover.png
 importance: 1
 category: work
 report_pdf: thesis-docs/am4224-final-report.pdf
-
+poster_pdf: thesis-docs/posternumber26.pdf
 related_publications: false
 ---
 

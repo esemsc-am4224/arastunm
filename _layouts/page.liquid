@@ -12,21 +12,39 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">
       {{ page.title }}
-      {% if page.report_pdf %}
-        <a
-          {% if page.report_pdf contains '://' %}
-            href="{{ page.report_pdf }}"
-          {% else %}
-            href="{{ page.report_pdf | prepend: 'assets/pdf/' | relative_url }}"
-          {% endif %}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="float-right"
-          title="Final Report"
-        >
-          <i class="fa-solid fa-file-pdf"></i>
-        </a>
-      {% endif %}
+      <span class="float-right">
+        {% if page.report_pdf %}
+          <a
+            {% if page.report_pdf contains '://' %}
+              href="{{ page.report_pdf }}"
+            {% else %}
+              href="{{ page.report_pdf | prepend: 'assets/pdf/' | relative_url }}"
+            {% endif %}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Final Report"
+            class="ml-2"
+          >
+            <i class="fa-solid fa-file-pdf"></i>
+          </a>
+        {% endif %}
+        
+        {% if page.poster_pdf %}
+          <a
+            {% if page.poster_pdf contains '://' %}
+              href="{{ page.poster_pdf }}"
+            {% else %}
+              href="{{ page.poster_pdf | prepend: 'assets/pdf/' | relative_url }}"
+            {% endif %}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Poster"
+            class="ml-2"
+          >
+            <i class="fa-solid fa-file-pdf"></i>
+          </a>
+        {% endif %}
+      </span>
     </h1>
     <p class="post-description">{{ page.description }}</p>
   </header>
