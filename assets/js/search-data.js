@@ -9,14 +9,7 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/arastunm/";
     },
-  },{id: "nav-publications",
-          title: "Publications",
-          description: "publications by categories in reversed chronological order.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/arastunm/publications/";
-          },
-        },{id: "nav-projects",
+  },{id: "nav-projects",
           title: "Projects",
           description: "A collection of research (academic reports), work, and personal projects.",
           section: "Navigation",
