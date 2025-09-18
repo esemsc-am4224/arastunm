@@ -1,24 +1,20 @@
 ---
 layout: page
-title: Master's Thesis
-description: conversational multi-agent system for campus energy management
-img: assets/img/12.jpg
+title: Conversational Energy Agents
+description: MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.
+img: assets/img/tech-blog/cover.png
 importance: 1
 category: work
-cv_pdf: thesis-docs/am4224-final-report.pdf
+report_pdf: thesis-docs/am4224-final-report.pdf
+
 related_publications: false
 ---
 
-# Conversational Energy Management
-
-Below is the copy of [Microsoft Educator Developer Blog](https://techcommunity.microsoft.com/blog/educatordeveloperblog/conversational-agents-for-campus-energy-management/4454910). Also see the [research report](../assets/pdf/thesis-docs/am4224-final-report.pdf), and the presented [poster](../assets/pdf/thesis-docs/posternumber26.pdf).
-
 ## Introduction
 
-We introduce the proof-of-concept conversational multi-agent system for campus energy management. 
-This system is developed and evaluated through emerging frameworks in [Microsoft’s Azure AI Agent Services](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-azure-ai-agent-service/4298357).
-We quantitatively discuss the evaluation results and existing limitations within agentic evaluation frameworks. 
-Finally, we outline the key challenges behind the development process, offering suggestions & recommendations for future works.
+A project by Microsoft x Imperial College London developed as part of the CampusConnect with a focus on energy management. Below is the copy of [Microsoft Educator Developer Blog](https://techcommunity.microsoft.com/blog/educatordeveloperblog/conversational-agents-for-campus-energy-management/4454910).
+
+We present a proof-of-concept conversational campus energy management system, powered by Large Language Model (LLM)-based agents. It leverages emerging frameworks in [Microsoft’s Azure AI Agent Services](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-azure-ai-agent-service/4298357) to develop a Multi-Agent System (MAS) capable of real-time monitoring, dynamic decision-making, and user interaction. We quantitatively discuss the evaluation results and existing limitations within agentic evaluation frameworks. Finally, we outline the key challenges behind the development process, offering suggestions & recommendations for future works.
 
 ### Energy Team
 
