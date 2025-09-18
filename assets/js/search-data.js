@@ -42,9 +42,9 @@ ninja.data = [{
           description: "MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/1_project/";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
+            },},{id: "projects-genetic-programming-for-parkinson-39-s-diagnosis",
+          title: 'Genetic Programming for Parkinson&amp;#39;s Diagnosis',
+          description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/2_project/";
             },},{id: "projects-project-3-with-very-long-name",
