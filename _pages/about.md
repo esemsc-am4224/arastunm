@@ -6,7 +6,7 @@ subtitle: MSc Student at <a href='https://www.imperial.ac.uk'>Imperial College L
 
 profile:
   align: right
-  image: queens_tower.jpg
+  image: rsm.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Royal School of Mines</p>
