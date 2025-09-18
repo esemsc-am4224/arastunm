@@ -5,10 +5,11 @@ description: conversational multi-agent system for campus energy management
 img: assets/img/12.jpg
 importance: 1
 category: work
+cv_pdf: CV_Gen.pdf
 related_publications: true
 ---
 
-# Conversational Energy Management  
+# Conversational Energy Management
 
 ## Introduction
 
@@ -21,18 +22,18 @@ Finally, we outline the key challenges behind the development process, offering 
 
 1. **Conversational Energy Management (This Blog)**  
 **Arastun Mammadli**\
-[![](assets/img/tech-blog/github.svg)](https://github.com/ese-ada-lovelace-2024/irp-microsoft/tree/dev/ema/energy-management/conv-system-energy) [![](assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/arastun-mammadli-068ab0228/)
+[![](../assets/img/tech-blog/github.svg)](https://github.com/ese-ada-lovelace-2024/irp-microsoft/tree/dev/ema/energy-management/conv-system-energy) [![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/arastun-mammadli-068ab0228/)
 
 2. **Agent-based Autonomous HVAC Manager**  
 **James Zhong**\
-[![](assets/img/tech-blog/github.svg)](https://github.com/ese-ada-lovelace-2024/irp-microsoft/tree/dev/ema/energy-management/hvac_manager) [![](assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/james-zhong-23443818b/)
+[![](../assets/img/tech-blog/github.svg)](https://github.com/ese-ada-lovelace-2024/irp-microsoft/tree/dev/ema/energy-management/hvac_manager) [![](../assets/img/tech-blog/linkedin.svg)](https://www.linkedin.com/in/james-zhong-23443818b/)
 
 ### CONTENT: [Project Overview](#project-overview) • [Project Journey](#project-journey) • [Technical Details](#technical-details) • [Results and Outcomes](#results-and-outcomes) • [Lessons Learned](#lessons-learned) • [Future Development](#future-development) • [Conclusion](#conclusion) • [Call to Action](#call-to-action)
 
 
 ## Project Overview
 
-![Project Development Workflow](assets/img/tech-blog/development-workflow.png)
+![Project Development Workflow](../assets/img/tech-blog/development-workflow.png)
 
 ### Perspectives: Business and Research
 
@@ -46,7 +47,7 @@ We test our autonomous agents on both technical and creative aspects of campus e
 
 The project intends to develop a conversational energy chatbot that can serve all 3 campus stakeholders (students, faculty, and administrators). Final agentic workflow should be able to handle system-related queries, collect student feedback, and assist administrators in textual and visual prognostics. We outline **3 key objectives**:
 
-![Three Key Objectives](assets/img/tech-blog/objectives.png)
+![Three Key Objectives](../assets/img/tech-blog/objectives.png)
 
 
 ## Project Journey
@@ -62,7 +63,7 @@ We design a synthetic energy schema by consulting with the internal energy monit
 
 These agents are orchestrated through a coordinator **Triage agent** that conducts composite routing between specialised agents until satisfied with the answer. We also integrate with supplementary Azure AI Language Services (**Custom Question Answering**, **Conversational Language Understanding**), and Azure AI Search for a fallback **RAG**.
 
-![Multi-Agent Orchestration Design](assets/img/tech-blog/system-design.png)
+![Multi-Agent Orchestration Design](../assets/img/tech-blog/system-design.png)
 
 
 ### Challenges in Development
@@ -96,7 +97,7 @@ The project was largely written in Python. Alongside we utilise Bicep (a domain 
 
 ### Demo Chart
 
-![Snapshot of System Functionalities](assets/img/tech-blog/image-demo.png)
+![Snapshot of System Functionalities](../assets/img/tech-blog/image-demo.png)
 
 
 ### Evaluation Results
@@ -104,19 +105,19 @@ The project was largely written in Python. Alongside we utilise Bicep (a domain 
 - **GPT-4o** is the best performing base model for specialised agents. We underscore that larger language models (e..g, Llama-3.3 70B) do not necessarily outperform their smaller counterparts (Gpt-4o mini, Phi4 mini).
 
 <div align=center>
-  <img src="assets/img/tech-blog/evaluation-results.png" alt="Snapshot of Aggregate Agent Performance Scores" style="width:70%;">
+  <img src="../assets/img/tech-blog/evaluation-results.png" alt="Snapshot of Aggregate Agent Performance Scores" style="width:70%;">
 </div>
 
 - We find that varying prompt strategies (no prompting, few-shot, ReAct style trajectories) do not have significant influence on agent performance score, but on the response length. We believe in action-based (**Feedback**) agents ReAct trajectories encourage sequential reasoning and action planning leading to better directed workflows and concise responses. Whereas in information-retrieval agents (**CampusInfo**, **AdminInfo**) they lead to more detailed and comprehensive responses.
 
 <div align=center>
-  <img src="assets/img/tech-blog/evaluation-results2.png" alt="How Prompt Engineering Affects Response Length" style="width:70%;">
+  <img src="../assets/img/tech-blog/evaluation-results2.png" alt="How Prompt Engineering Affects Response Length" style="width:70%;">
 </div>
 
 - We find through routing ablations that Triage agent plays an important synthesizer role (**no Triage &rarr; over 2x response length**). In the end we decide to use no ablations in the orchestration. This offers the most direct & concise responses without sacrificing on aggregate performance score.
 
 <div align=center>
-  <img src="assets/img/tech-blog/evaluation-results3.png" alt="Routing Ablations" style="width:70%;">
+  <img src="../assets/img/tech-blog/evaluation-results3.png" alt="Routing Ablations" style="width:70%;">
 </div>
 
 
