@@ -67,9 +67,9 @@ ninja.data = [{
               window.location.href = "/arastunm/projects/firework-sim/";
             },},{id: "projects-conversational-energy-agents",
           title: 'Conversational Energy Agents',
-          description: "MSc thesis on autonomous LLM agents with Microsoft Azure AI Agent Services.",
+          description: "MSc research project on autonomous LLM agents with Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/msc_thesis/";
+              window.location.href = "/arastunm/projects/msc_project/";
             },},{id: "projects-pathfinder",
           title: 'Pathfinder',
           description: "C++ based 2D pathfinder simulator.",
