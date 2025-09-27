@@ -37,21 +37,21 @@ ninja.data = [{
               window.location.href = "/arastunm/projects/4_project/";
             },},{id: "projects-deep-impact",
           title: 'Deep Impact',
-          description: "The hazard of small asteroids.",
+          description: "Airburst solver and airblast damage mapper.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/acds_1/";
             },},{id: "projects-storm-prediction",
           title: 'Storm Prediction',
-          description: "Predicting the unpredictable.",
+          description: "Real-time lightning storm predictions with deep learning.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/acds_2/";
             },},{id: "projects-palusznium-rush",
           title: 'Palusznium Rush',
-          description: "Optimal mineral recovery using a Genetic Algorithm approach.",
+          description: "Optimal mineral recovery using a genetic algorithm approach.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/acds_3/";
-            },},{id: "projects-genetic-programming-for-parkinson-39-s-diagnosis",
-          title: 'Genetic Programming for Parkinson&amp;#39;s Diagnosis',
+            },},{id: "projects-genetic-programming",
+          title: 'Genetic Programming',
           description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/bsc_final_project/";
@@ -65,9 +65,9 @@ ninja.data = [{
           description: "C++ based basic graphic firework simulator.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/firework-sim/";
-            },},{id: "projects-conversational-energy-agents",
-          title: 'Conversational Energy Agents',
-          description: "MSc research project on autonomous LLM agents with Microsoft Azure AI Agent Services.",
+            },},{id: "projects-llm-multi-agent-orchestration",
+          title: 'LLM Multi-Agent Orchestration',
+          description: "MSc research project on LLM agent systems through Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/msc_project/";
             },},{id: "projects-pathfinder",
