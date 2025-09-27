@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Palusznium Rush
-description: Optimal mineral recovery using a Genetic Algorithm approach.
+description: Optimal mineral recovery using a genetic algorithm approach.
 img: assets/img/project_covers/acds_3_cover.png
 importance: 1
 category: work

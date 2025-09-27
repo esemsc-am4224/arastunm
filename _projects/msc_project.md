@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Conversational Energy Agents
-description: MSc research project on autonomous LLM agents with Microsoft Azure AI Agent Services.
+title: LLM Multi-Agent Orchestration
+description: MSc research project on LLM agent systems through Microsoft Azure AI Agent Services.
 img: assets/img/project_covers/msc_thesis_cover.png
 importance: 1
 category: research
@@ -65,7 +65,7 @@ The project intends to develop a conversational energy chatbot that can serve al
 
 We design a synthetic energy schema by consulting with the internal energy monitoring team, and a publicly available institutional energy dataset (UNICON). The schema includes a hierarchical campus infrastructure and timeseries of mocked environmental data. We also incorporate an energy feedback container (taking inspiration from the [TherMOOstat](https://facilities.ucdavis.edu/engineering/thermoostat) project) to dynamically manage user feedback. At the core of the multi-agent orchestration, we design 4 specialised agents.
 
-1. **Campus Information** - a generalist information retrieval (IR) agent that answers energy related queries
+1. **Campus Information** - a generalist information retrieval (IR) agent that answers energy related queries.
 2. **Admin Information** - similarly but built for administrators with access to confidential and higher detail data.
 3. **Chart Plotter** - helper agent to Admin Information that can generate visual summaries and prognostics.
 4. **Feedback** - action-based agent to pre-process and collect energy feedback.
