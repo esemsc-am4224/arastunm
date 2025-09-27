@@ -1,0 +1,14 @@
+10 Units Age-Layered Population Structure (ALPS) based GA
+* Best fitness ever (from our runs) - 491.938
+
+Short Runs (100-500 generations)
+* Less likely to be stuck in local optima compared to standard GA
+* More consistent in results than standard GA, can converge to best fitness but not always (usually +- 15)
+
+Longer Runs (>=1000 generations)
+* Very likely to converge to best fitness (491.38)
+* Algorithm does not seem to score higher than this value no matter how longer it runs
+
+
+15 Units Age-Layered Population Structure (ALPS) based GA
+* Scores around ~650

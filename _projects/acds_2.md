@@ -47,24 +47,16 @@ Key objectives are:
 
 My work focused mostly on Task 3.
 
+
 ## Table of Contents
-2. [Planning](#planning)
+2. [Data Analysis](#data-analysis)
 3. [Model Designs](#model-designs)
 4. [Baseline Model](#baseline-model-and-implementation)
 5. [Network Implementations and Results](#network-implementation-and-results)
 
+## Data Analysis
+
 ### Data Analysis and Inspection
-
-Data analysis and inspection involves looking at the dataset, inspecting the shape of our input and output (target) data. This gives an idea of what to feed into our models and the expected output. The section will dicuss the provided data; `events.csv` and `train.h5` files, and their content structure.
-
-#### Provided Dataset
-The `events.csv` is essentially a look-up table to available storm events. This is a csv file containing `ids` of all events available in the `train.h5` dataset. The .csv file is used to load all ids, and then load the corresponding event from the `train.h5` dataset.
-
-```python
-def load_ids(file_name="data/events.csv", n=10): # loads list of event ids of size n
-
-def load_event(id): # loads the event from "train.h5" using event id
-```
 
 Loaded event contains the 4 image channels available to us *"vis"* (Visible), *"ir069"* (Infrared Water Vapor), *"ir017"* (Infrared Cloud/Surface Temperature), *"vil"* (Radar Vertically Integrated Liquid), and the *"lght"* (Ligthning Time Series).
 
@@ -88,21 +80,19 @@ An individual event contains 36 frames, the frames of 4 input channels and corre
 
 The EDA section focuses on analysing and visualising data patterns, which can later be used to guide our network design choices. First we take a look at the `events.csv` file:
 
----
-| id  | start_utc               | center_lon   | center_lat  |
-|-----|-------------------------|--------------|-------------|
+| id  | start_utc                       | center_lon   | center_lat  |
+|-----|---------------------------------|--------------|-------------|
 | 0   | S778114 2018-08-20 19:50:00+00:00 | -90.382958   | 34.363062   |
 | 5   | S767475 2018-08-20 21:30:00+00:00 | -92.317177   | 32.656136   |
 | 10  | S771210 2018-08-20 21:40:00+00:00 | -113.388288  | 45.582713   |
 | 15  | S782022 2018-08-21 00:20:00+00:00 | -111.000673  | 32.092002   |
 | 20  | S769788 2018-08-21 17:10:00+00:00 | -78.634434   | 39.703476   |
----
+
 
 We can reduce our events table, only keeping important columns;  `id`, `start_utc`, `center_lon` and `center_lat`. Meaning our events can be described by their geographic location (latitude and longitude) their start time and id. In the context of **Task3** however; except `id` these columns are not important. In terms of location, we want to focus on pixel (image wise) locations of the lightning flashes. And the time of occurance is only considered relative to particular event (not global date/time).
 
 The `train.h5` dataset however; contains important information about each event, to later feed into our models. Each event can be identified through its `id` loaded from `events.csv`. As discussed, for each such event there are 4 image channels, and a lightning time series of the following shape:
 
----
 | Channel | Shape                | Description                                               |
 |---------|---------------------|-----------------------------------------------------------|
 | vis     | (384, 384, 36)      | Visible satellite images, 36 frames per event/sample      |
@@ -110,7 +100,6 @@ The `train.h5` dataset however; contains important information about each event,
 | ir069   | (192, 192, 36)      | Infrared Water Vapor, 36 frames per event/sample          |
 | ir107   | (192, 192, 36)      | Infrared Cloud/Surface Temp, 36 frames per event/sample   |
 | lght    | (N, 5)              | Lightning strikes: [time, lat, lon, pixel x, pixel y]     |
----
 
 When it comes to data imbalance, we can plot the total number of strikes across all events to visualise the distribution.
 
@@ -232,4 +221,3 @@ The other key limitation of this approach is that it is not able to predict the 
 <div class="caption">
    Baseline Model Prediction.
 </div>
-

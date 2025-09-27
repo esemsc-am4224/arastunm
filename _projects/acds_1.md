@@ -19,9 +19,6 @@ Asteroids entering Earth’s atmosphere are subject to extreme drag forces that 
         {% include figure.liquid loading="eager" path="assets/img/acds1/chelyabinsk.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Project Development Workflow
-</div>
 
 ## Overview
 
