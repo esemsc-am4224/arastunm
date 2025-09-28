@@ -28,7 +28,7 @@ It is a Python-based solution with two core features:
 - **Airburst Solver** - a fast numerical simulator to predict the fate of asteroids entering Earth's atmosphere.
 - **Airblast Damage Mapper** - a hazard mapper (that uses the solver) for an impact over the UK.
 
-## Technical Details
+## Technical Details
 
 1. The operational workflow of the numerical airbust solver:
 
