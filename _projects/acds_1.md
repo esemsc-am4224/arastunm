@@ -52,9 +52,7 @@ It is a Python-based solution with two core features:
     Airblast Mapper Workflow
 </div>
 
-## Results and Outcome
-
-### Airbust Solver Demo
+## Airbust Solver Demo
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">

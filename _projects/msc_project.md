@@ -1,7 +1,7 @@
 ---
 layout: page
-title: LLM Multi-Agent Orchestration
-description: MSc research project on LLM agent systems through Microsoft Azure AI Agent Services.
+title: LLM Agents
+description: MSc research project on LLM multi-agent system using Microsoft Azure AI Agent Services.
 img: assets/img/project_covers/msc_thesis_cover.png
 importance: 1
 category: research
