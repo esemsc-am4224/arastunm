@@ -5,6 +5,7 @@ description: C++ based 2D pathfinder simulator.
 img: assets/img/project_covers/pathfinder_cover.png
 importance: 1
 category: fun
+github_repo: https://github.com/ArastunM/Pathfinder
 ---
 
 ## Overview

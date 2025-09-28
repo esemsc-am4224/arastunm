@@ -5,6 +5,7 @@ description: C++ based basic graphic firework simulator.
 img: assets/img/project_covers/firework_sim_cover.png
 importance: 1
 category: fun
+github_repo: https://github.com/ArastunM/Firework-Sim
 ---
 
 ## Overview 

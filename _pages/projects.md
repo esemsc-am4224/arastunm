@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Projects
+title: Project Blogs
 permalink: /projects/
-description: A collection of research (academic reports), work, and personal project blogs.
+description: A collection of research (academic reports), work, and personal projects.
 nav: true
 nav_order: 3
 display_categories: [research, work, fun]
