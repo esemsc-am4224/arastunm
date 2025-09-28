@@ -1,0 +1,21 @@
+Optimisation Works On Selection (Arastun): 
+All optimisations were done on unit size 10.
+
+1. Non-opt version - uses standard tournament selection with fixed tournament size
+- returns a consistent best fitness in the range ~430-470
+- drop in poulation and fitness diversity
+- consistent improvement in performance and convergence around mid 400s
+2. Opt verion1 - dynamic tournament size (from min tournament size: pop_size/50 to max tournament size: pop_size/2)
+- returns a less consistent results (more oscillations in best performance)
+- can obtain best fitness upto ~490
+- varying tournament size scaling rate (e.g., 2.0, how fast it changes from min to max tournament size) does not meaningfully improve results
+3. Opt version2 - rank based selection
+- performs worse than tournament selection with small population size (e.g., 100)
+- performs somewhat ~on-par with previous verions at large poulations (e.g., 500)
+- but the average population drops very low as generations progress
+4. Combining rank-based with standard tournament (starting with rank-based)
+- attempting to use the diversity of rank-based approach to see if standard tournament can improve further can its limit
+- Again, the result is not any better than non-opt version
+
+
+Overall the standard tournament selection seems to be most robust and the best performer.
