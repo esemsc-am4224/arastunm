@@ -39,8 +39,6 @@ Here is the circuit with highest fitness value (for standard **10** unit design)
 
 ## Standard Genetic Algorithm
 
-All experiments were carried out using a unit size of **10**.
-
 ### 1. Results with **tournament selection**:
 
 <div class="row">
@@ -79,6 +77,41 @@ All experiments were carried out using a unit size of **10**.
         {% include figure.liquid loading="eager" path="assets/img/acds3/ga_results/Tour-plus-rank-diver-dist.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
+### Performance Notes
+
+All experiments were carried out using a unit size of **10**. Below is a summary of the different selection strategies tested and their outcomes.
+
+#### 1. Baseline: Non-Optimized Version
+
+* **Method**: Standard tournament selection with a fixed tournament size.
+* **Results**:
+  * Achieves a consistent best fitness in the range of ~430–470.
+  * Shows a drop in both population and fitness diversity.
+  * Performance steadily improves and converges around the mid-400s.
+
+#### 2. Optimized Version 1: Dynamic Tournament Size
+
+* **Method**: Tournament size scales dynamically from `pop_size/50` (minimum) to `pop_size/2` (maximum).
+* **Results**:
+  * Produces less consistent results, with more oscillations in best performance.
+  * Achieves best fitness values up to ~490.
+  * Adjusting the tournament size scaling rate (e.g., factor of 2.0 to control the speed of change) does not meaningfully improve outcomes.
+
+#### 3. Optimized Version 2: Rank-Based Selection
+
+* **Results**:
+  * Performs worse than tournament selection with smaller populations (e.g., 100).
+  * Performs roughly on par with earlier versions at larger populations (e.g., 500).
+  * Average population fitness drops significantly as generations progress.
+
+#### 4. Hybrid: Rank-Based + Tournament Selection
+
+* **Method**: Start with rank-based selection to encourage diversity, then switch to standard tournament selection to push toward convergence.
+* **Results**:
+  * Does not outperform the non-optimized version.
+  * Gains from rank-based diversity fail to translate into better final results.
+
 
 ## Age-Layered Genetic Algorithm (ALGP)
 
