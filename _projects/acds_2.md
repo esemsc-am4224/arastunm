@@ -8,16 +8,16 @@ category: work
 related_publications: false
 ---
 
-## Motivation
+## Motivation
 
 Each year, lightning storms cause fatalities, wildfires, power outages, disruptions to air travel and flooding, often with little warning. Approximately 2000 thunderstorms are occurring at any given time around the world. Accurate, real-time predictions are essential to protect power grids, guide flight rerouting, and inform evacuation plans. With climate change contributing to more extreme and unpredictable weather patterns, real-time forecasting of lightning storms has never been more crucial: a 1 degree Celsius rise in temperature could result in a 12% increase in lightning strikes.
 
-## Overview 
+## Overview
 
 Key objectives are:
-- Develop ML/DL-based models capable of predicting future weather patterns based on storm data.
-- Generate reliable and explainable predictions for lightning storm evolution.
-- Explore scalability and explainability for real-world applications.
+1. Develop ML/DL-based models capable of predicting future weather patterns based on storm data.
+2. Generate reliable and explainable predictions for lightning storm evolution.
+3. Explore scalability and explainability for real-world applications.
 
 ### Dataset Overview
 
@@ -43,22 +43,12 @@ Key objectives are:
 - **Task 1A** - predict 12 future VIL frames based on 12 previous VIL frames.
 - **Task 1B** - predict 12 future VIL frames using input frames from VIS, IR069, IR107, and VIL data.
 - **Task 2** - generate missing VIL frames using VIS, IR069, and IR107 data.
-- **Task 3** - predict lightning flashes; (1) number of flashes, (2) time occurence, (3) VIL pixel location of each flash
-
-My work focused mostly on Task 3.
+- **Task 3 (My Work)** - predict lightning flashes; (1) number of flashes, (2) time occurence, (3) VIL pixel location of each flash.
 
 
-## Table of Contents
-2. [Data Analysis](#data-analysis)
-3. [Model Designs](#model-designs)
-4. [Baseline Model](#baseline-model-and-implementation)
-5. [Network Implementations and Results](#network-implementation-and-results)
+## Exploratory Data Analysis (EDA)
 
-## Data Analysis
-
-### Data Analysis and Inspection
-
-Loaded event contains the 4 image channels available to us *"vis"* (Visible), *"ir069"* (Infrared Water Vapor), *"ir017"* (Infrared Cloud/Surface Temperature), *"vil"* (Radar Vertically Integrated Liquid), and the *"lght"* (Ligthning Time Series).
+Loaded event contains the 4 image channels available to us *"vis"* (Visible), *"ir069"* (Infrared Water Vapor), *"ir017"* (Infrared Cloud/Surface Temperature), *"vil"* (Radar Vertically Integrated Liquid), and the *"lght"* (Ligthning Time Series). Inspecting the dataset revealed a generally clean data with no duplicate, missing or bad values. 
 
 - **"vis"** - 384x384 image with 36 frames per event/sample (36, 384, 384)
 - **"vil"** - 384x384 image with 36 frames per event/sample (36, 384, 384)
@@ -66,40 +56,29 @@ Loaded event contains the 4 image channels available to us *"vis"* (Visible), *"
 - **"ir017"** - 192x192 image with 36 frames per event/sample (36, 192, 192)
 - **"lght"** - array of N lightning strikes, with [time, latitude, longitude, pixel x, pixel y] (N, 5)
 
-Inspecting the dataset revealed a generally clean data with no duplicate, missing or bad values. 
-
-An individual event contains 36 frames, the frames of 4 input channels and corresponding lightning strike data can be combined to plot an overview of a particular storm event:
+The EDA section focuses on analysing and visualising data patterns, which can later be used to guide our network design choices. First we take a look at the `events.csv` file:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/acds2/baseline_example.gif" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/acds2/event_info_table" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-
-### Exploratory Data Analysis (EDA)
-
-The EDA section focuses on analysing and visualising data patterns, which can later be used to guide our network design choices. First we take a look at the `events.csv` file:
-
-| id  | start_utc                       | center_lon   | center_lat  |
-|-----|---------------------------------|--------------|-------------|
-| 0   | S778114 2018-08-20 19:50:00+00:00 | -90.382958   | 34.363062   |
-| 5   | S767475 2018-08-20 21:30:00+00:00 | -92.317177   | 32.656136   |
-| 10  | S771210 2018-08-20 21:40:00+00:00 | -113.388288  | 45.582713   |
-| 15  | S782022 2018-08-21 00:20:00+00:00 | -111.000673  | 32.092002   |
-| 20  | S769788 2018-08-21 17:10:00+00:00 | -78.634434   | 39.703476   |
-
+<div class="caption">
+    Events Metadata
+</div>
 
 We can reduce our events table, only keeping important columns;  `id`, `start_utc`, `center_lon` and `center_lat`. Meaning our events can be described by their geographic location (latitude and longitude) their start time and id. In the context of **Task3** however; except `id` these columns are not important. In terms of location, we want to focus on pixel (image wise) locations of the lightning flashes. And the time of occurance is only considered relative to particular event (not global date/time).
 
 The `train.h5` dataset however; contains important information about each event, to later feed into our models. Each event can be identified through its `id` loaded from `events.csv`. As discussed, for each such event there are 4 image channels, and a lightning time series of the following shape:
 
-| Channel | Shape                | Description                                               |
-|---------|---------------------|-----------------------------------------------------------|
-| vis     | (384, 384, 36)      | Visible satellite images, 36 frames per event/sample      |
-| vil     | (384, 384, 36)      | Vertically Integrated Liquid (Radar), 36 frames per event |
-| ir069   | (192, 192, 36)      | Infrared Water Vapor, 36 frames per event/sample          |
-| ir107   | (192, 192, 36)      | Infrared Cloud/Surface Temp, 36 frames per event/sample   |
-| lght    | (N, 5)              | Lightning strikes: [time, lat, lon, pixel x, pixel y]     |
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/acds2/channel_config_table.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Image Channels Metadata
+</div>
 
 When it comes to data imbalance, we can plot the total number of strikes across all events to visualise the distribution.
 
@@ -144,7 +123,7 @@ We can also consider the spatial imbalance. Given that the data was recorded in 
 Again, there is not a big imbalance, however; most of the events seem to have been recorded on the eastern half of the country. More importantly, a lot of the sparsely recorded area falls into the region of the 'Great Basin Desert'. The regions with a desert (or desert-like) climate tend to have less stormy events. This can hint to some imbalance, if there is a difference in storms over a desert-like regions and temperate (or other) more stormy regions.
 
 
-## **Model Designs**
+## Model Designs
 
 Model designs is the last step before implementation. It discusses a list of models to consider in the context of available dataset and task goal. In this task we aim to predict lightning flashes per each frame of the event. The target is shaped as a 384x384 lightning map. The input we feed into our models is 4 channels of 384x384 images.
 
@@ -184,6 +163,7 @@ print(y.shape)  # (36, 1, 384, 384)
 Here, a batch size of 36 makes sense (to include all frames within a single event).
 
 ### Convolutional LSTM (Conv-LSTM)
+
 Finally, given the sequential nature of our forecasting task, we decided to implement a Convolutional Long Short Term Memory (conv-LSTM) model. Combinining a convolutional neural network (CNN) with LSTM can be useful in our case; considering the task involves both spatial and temporal data. CNNs are great at extracting spatial data from images, while LSTMs can handle the forecasting data (which has sequential structure) well. However this approach will come at the cost of hardware limitations. Both CNNs and LSTMs are computationally intensive requiring significant GPU/RAM. Espeically given our long sequence of 36 frames, and our large dataset `train5.h`. The Conv-LSTM is also a more complex model (compared to the previously discussed model designs) making it difficult to optimise our model. 
 
 Our input and target would have the following shapes:
@@ -194,7 +174,7 @@ print(y.shape)  # (36, 1, 384, 384)
 
 This looks similar to U-Net frame-by-frame approach in shape, however given the internal mechanism of conv-LSTM, the sequential relationship between input frames will be taken into account (preserving the temporal relationship between invidual frames of an event).
 
-## **Baseline Model and Implementation**
+## Baseline Model and Implementation
 
 ### Observation: Correlation with VIL channel (Vertically Integrated Liquid)
 From analysis of imagery of the lightning strikes overlayed on the VIL channel there is a clear and strong relationship between pixel intensity and the location at which lightning tends to strike. This is seen throughout the weather events, when the total amount of water in a column of air picked up by the radar surpasses a certain threshold, a lightning strike occurs.

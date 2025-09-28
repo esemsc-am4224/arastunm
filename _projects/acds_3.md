@@ -126,7 +126,7 @@ This method is designed to address **premature convergence** by encouraging expl
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/acds3/ga_results/ALPS-10-best-age-dist.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/acds3/alps_ga_results/ALPS-10-best-age-dist.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -141,11 +141,11 @@ This method is designed to address **premature convergence** by encouraging expl
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/acds3/ga_results/ALPS-10-best-fitness-sum.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/acds3/alps_ga_results/ALPS-10-best-fitness-sum.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/acds3/ga_results/ALPS-10-best-diver-dist.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/acds3/alps_ga_results/ALPS-10-best-diver-dist.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
