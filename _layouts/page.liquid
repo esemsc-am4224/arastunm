@@ -13,6 +13,18 @@ layout: default
     <h1 class="post-title">
       {{ page.title }}
       <span class="float-right">
+        {% if page.github_repo %}
+          <a
+            href="{{ page.github_repo }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub Repository"
+            class="ml-2"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+        {% endif %}
+
         {% if page.report_pdf %}
           <a
             {% if page.report_pdf contains '://' %}

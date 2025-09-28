@@ -5,6 +5,7 @@ description: C++ SFML based simple 2D cloth simulator.
 img: assets/img/project_covers/cloth_sim_cover.png
 importance: 1
 category: fun
+github_repo: https://github.com/ArastunM/Cloth-Sim
 ---
 
 ## Overview
