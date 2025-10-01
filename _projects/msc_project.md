@@ -1,7 +1,7 @@
 ---
 layout: page
-title: LLM Agents
-description: MSc research project on LLM multi-agent system using Microsoft Azure AI Agent Services.
+title: LLM Agent Workflow
+description: MSc research project on LLM Multi-Agent System (MAS) using Microsoft Azure AI Agent Services.
 img: assets/img/project_covers/msc_thesis_cover.png
 importance: 1
 category: research
