@@ -65,9 +65,9 @@ ninja.data = [{
           description: "C++ based basic graphic firework simulator.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/firework-sim/";
-            },},{id: "projects-llm-agents",
-          title: 'LLM Agents',
-          description: "MSc research project on LLM multi-agent system using Microsoft Azure AI Agent Services.",
+            },},{id: "projects-llm-agent-workflow",
+          title: 'LLM Agent Workflow',
+          description: "MSc research project on LLM Multi-Agent System (MAS) using Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/msc_project/";
             },},{id: "projects-pathfinder",
