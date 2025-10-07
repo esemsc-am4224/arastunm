@@ -17,7 +17,6 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am an MSc student in Applied Computational Science at Imperial College London focused on practical applications of 
-machine learning, deep learning, and large language models. My dissertation work is on applying emerging agentic frameworks on campus energy management with Azure AI Services @ Microsoft under Prof. Lee Stott's supervision.
+I am an MSc student in Applied Computational Science and Engineering at Imperial College London focused on practical applications of machine learning, deep learning, and large language models. My dissertation work is on applying emerging agentic frameworks on campus energy management with Azure AI Services @ Microsoft under Prof. Lee Stott's supervision.
 
 I am interested in using Large Language Models (LLMs) as autonomous agents for interactive decision making. In particular, exploring the impact of prompt engineering, grounding, multi-agent group chat techniques, and the agent workflow design.

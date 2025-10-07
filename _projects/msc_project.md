@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Multi-Agent Orchestration
-description: MSc research project on LLM Multi-Agent System (MAS) using Microsoft Azure AI Agent Services.
+description: MSc research project on LLM Multi-Agent Systems (MAS) using Microsoft Azure AI Agent Services.
 img: assets/img/project_covers/msc_thesis_cover.png
 importance: 1
 category: research
