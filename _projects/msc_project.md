@@ -1,6 +1,6 @@
 ---
 layout: page
-title: LLM Agent Workflow
+title: Multi-Agent Orchestration
 description: MSc research project on LLM Multi-Agent System (MAS) using Microsoft Azure AI Agent Services.
 img: assets/img/project_covers/msc_thesis_cover.png
 importance: 1

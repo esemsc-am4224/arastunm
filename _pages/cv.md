@@ -4,7 +4,7 @@ permalink: /cv/
 title: CV
 nav: true
 nav_order: 5
-cv_pdf: CV_Gen.pdf
+cv_pdf: CV_Academic.pdf
 description: Arastun's CV
 toc:
   sidebar: left
