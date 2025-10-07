@@ -67,7 +67,7 @@ ninja.data = [{
               window.location.href = "/arastunm/projects/firework-sim/";
             },},{id: "projects-multi-agent-orchestration",
           title: 'Multi-Agent Orchestration',
-          description: "MSc research project on LLM Multi-Agent System (MAS) using Microsoft Azure AI Agent Services.",
+          description: "MSc research project on LLM Multi-Agent Systems (MAS) using Microsoft Azure AI Agent Services.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/msc_project/";
             },},{id: "projects-pathfinder",
