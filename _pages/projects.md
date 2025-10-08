@@ -5,7 +5,7 @@ permalink: /projects/
 description: A collection of research (academic reports), work, and personal projects.
 nav: true
 nav_order: 3
-display_categories: [research, work, fun]
+display_categories: [research, work, blog, fun]
 horizontal: true
 ---
 

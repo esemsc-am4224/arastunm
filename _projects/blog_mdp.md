@@ -1,0 +1,143 @@
+---
+layout: page
+title: Markov Decision Processes
+description: A general overview on Markov Decision Processes (MDP)
+img: assets/img/project_covers/bsc_project_cover.png
+importance: 2
+category: blog
+---
+
+# Markov Decision Processes
+
+- [Introduction](#introduction)
+- [Bellman Equation](#the-bellman-equation-solving-an-mdp)
+- [Value Iteration](#value-iteration)
+- [Policy Extraction](#policy-extraction)
+- [Policy Iteration](#policy-iteration)
+
+## Introduction
+
+Markov Decision Process (MDP) is a model for sequential decision making when the outcomes are certain. MDPs satisfy the Markov property, also known as memoryless property. Given the present, the future and the past states are conditionally independent. The probability of arriving in the successor state $s_{t+1}$ only depends on the current state $s_t$ and action $a_t$, not on any earlier states of actions.
+
+$$
+P(S_{t+1} = s_{t+1} | S_t = s_t, A_t = a_t) 
+$$
+
+MDP is defined by a set of states $S$ and a set of actions $A$. A transition function $T(s, a, s')$ (which encodes the memoryless property $P(s' | s, a)$) represents probability of an agent taking an action $a \in A$ from a state $s \in S$ to end up in a new state $s' \in S$. Finally, a reward function $R(s, a, s')$ that guides the optimisation. MDP is constructred similar to a state-space graph with a few additional caveats.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/mdp.png" height="300" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Markov Decision Process [Berkeley AI](https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/solve.html)
+</div>
+
+Agents goal is to maximize the reward across all timesteps. This can be expressed as the maxmisation of the following utility function:
+
+$$
+U([s_0, a_0, s_1, a_1, s_2, ...]) = R(s_0, a_0, s_1) + R(s_1, a_1, s_2) + R(s_2, a_2, s_3) + ...
+$$
+
+MDPs can be unraveled into search trees. **Q-states** (also known as action states) use probability to model the uncertainty that the environment will land the agent at a certain state $s$. The Q-state represented by having taken an action $a$ from state $s$ is denoted as the tuple $(s, a)$. So essentially Q-state represents a step (a construct created for ease of representation) where a certain action has been taken from a past state, but it is yet to be resolved into a new successor state $s'$.
+
+### Finite Horizons and Discounting
+
+Finite horizons or dicounting factors are introduced to put time constraints. An MDP enforcing a finite horizon defines a "lifetime" for agents. They are given some $n$ timesteps to accrue as much reward as possible before being terminated. **Discount factors** are more complicated, they are introduced to model an exponential decay in the value of rewards $R$ over time. Concretely, a discount factor $\gamma$ of taking action $a_t$ from state $s_t$ at timestep $t$ ending up in state $s_{t+1}$ results in reward of $\gamma^tR(s_t, a_t, s_{t+1})$ instead of just $R(s_t, a_t, s_{t+1})$. Instead of maximising additive utility, we maximise discounted utility:
+
+$$
+U([s_0, a_0, s_1, a_1, s_2, ...]) = R(s_0, a_0, s_1) + \gamma R(s_1, a_1, s_2) + \gamma^2R(s_2, a_2, s_3) + ...
+$$
+
+Typically $\gamma$ is selected to strictly range between $0 < \gamma < 1$. Negative values are not meaningful in most real-world situations as the reward for state $s$ would simply flip-flop from positive to negative values between timesteps.
+
+## The Bellman Equation: Solving an MDP
+
+Solving a Markov Decision Process means finding an optimal policy $\pi^*: S \to A$, a function mapping each state $s \in S$ and action $a \in A$. An explicit policy defines a reflex agent: given a state $s$, an agent at $s$ will select the action $a = \pi(s)$ as the next appropriate step without consideration of future consequences. An optimal policy $\pi$ should yield maximum expected total utility or reward. 
+
+1. The expected total utility value or reward an optimally-behaving agent starting at state $s$ would receive is denoted by $V^*(s)$. 
+2. The expected total utility value or reward an optimally-behaving agent starting at state $s$ at taking the action $a$ would receive can be denoted by $Q^*(s, a)$.
+
+Hence the **Bellman equation** and the **Q-value** can be defined as:
+
+
+$$
+V^*(s) = \max_a \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V^*(s') \big]
+$$
+
+$$
+Q^*(s, a) = \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V^*(s') \big]
+$$
+
+$$
+V^*(s) = \max_a Q^*(s, a)
+$$
+
+For example, $\big[ R(s, a, s') + \gamma V^*(s') \big]$ represents the total utility the agent recieves by first taking action $a$ from $s$ to arrive at $s'$, and then acting optimally from state $s'$: $V^*(s')$ along with a discount factor $\gamma$ to account for the passage of one timestep.
+
+
+## Value Iteration
+
+A core equation in reinforcement learning is known as the **Bellman optimality update** equation. It is also known as the **value iteration** update rule used to compute the optimal value function $V^*(s)$ in MDP. Time-limited value for a state $s$ with a time of $k$ timestemps is denoted as $V_k(s)$. To start with the value update, we initialise $V_0(s) = 0$ for $\forall s$; no rewards of no action is taken. Then we repeat the following optimality update rule until convergence (that is until $\forall s, V_{k+1}(s) = V_k(s)$):
+
+$$
+\forall s \in S, \quad V_{k+1}(s) \leftarrow \max_a \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V_k(s') \big]
+$$
+
+At each iteration $k$, we use time-limited values with limit $k$ for each state to generate time-limited values with limit $k+1$. That is, we iteratively build up solution for larger subproblems (all the $V_{k+1}$). We take the maximum over all actions $a$, because we assume the agent acts optimally (maximum expected utility over all possible actions from $s$). We dynamically update the new estimate $V_{k+1}(s)$ with the best possible expected return. You can also come across with following definitions used for conciseness (where $B$ is the Bellman operator):
+
+$$
+U_{k+1}(s) \leftarrow \max_a \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V_k(s') \big]
+$$
+
+$$
+V_{k+1} \leftarrow BU_k
+$$
+
+Bellman operator is a contraction by $\gamma$ (see [proof](https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/value-iteration.html)). This suggests that the value iteration does indeed converge, and convergence happens when we have reached a fixed point that satisfies $V^* = BU^*$.
+
+## Policy Extraction
+
+Ultimate goal in solving the MDP is to determine an optimal policy. Once the optimal values for all states $s$ are determined we can find the optimal policy using method called **policy extraction**. If you are in state $s$, the optimal action $a$ is the action that takes us to the Q-state with the maximum Q-value:
+
+$$
+\forall s \in S, \pi^*(s) = \argmax_a Q^*(s, a) = \argmax_a \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V^*(s') \big]
+$$
+
+For performance reasons we must store all optimal Q-values $Q^*(s, a)$, instead of just storing the $V^*(s)$ (which would require as to recompute all necessary Q-values with the Bellman equation). Hence we can calculate the **Q-value iteration** as following (slight modification over the update rule for value iteration):
+
+$$
+Q_{k+1}(s, a) \leftarrow \sum_{s'} T(s, a, s') \big[R(s, a, s') + \gamma \max_{a'} Q_k(s', a')\big]
+$$
+
+Once we have the optimal Q-values for each state $s$ and action $a$, we simply find the policy for a state $\pi^*(s)$ by simply choosing the action with the highest Q-value.
+
+## Policy Iteration
+
+The value iteration is costly, with a poor runtime of $O(|S|^2|A|)$. The policy as computed by policy extraction generally converges significantly faster than the values themselves. Hence, if all we want to determine is the optimal policy for MDP, the value iteration does a lot of overcomputation. **Policy iteration** is an alternative that fixes these flaws. First we define an initial policy (which can be arbitrary, but will converge faster the closer it is to eventual optimal policy). Then we repeat the following 2 steps until convergence. 
+
+1. Evaluate the current policy with **policy evaluation**. Since we are fixing a single action for each state, we no longer need the $\max$ operator. Policy evaluation means computing $V^\pi(s)$ for all states $s$. Each $V^{\pi_i}(s)$ can be computed by following this system:
+
+$$
+\pi: V^\pi(s) = \sum_{s'} T(s, \pi(s), s') \big[R(s, \pi(s), s') + \gamma V^\pi(s')\big]
+$$
+
+2. Once we have evaluated the current policy, we can use **policy improvement** to generate better policy. Policy improvement uses policy extraction on the values of states generated by policy evaluation to generate a new better policy at each iteration:
+
+$$
+\pi_{i+1}(s) = \argmax_a \sum_{s'} T(s, a, s') \big[R(s, a, s') + \gamma V^{\pi_i}(s')\big]
+$$
+
+Here again, if $\pi_{i+1} = \pi_i$ the algorithm has converged and we can conclude that $\pi_{i+1} = \pi_i = \pi^*$.
+
+## Summary
+
+- **Value iteration**: used to compute optimal values of states $S$ until convergence.
+- **Policy evaluation**: used to compute the values of states $S$ under a specific policy
+- **Policy extraction**: used to determine the policy $\pi$ given some state value function. If the state values are optimal the policy will also be optimal. Hence it is used after **value iteration** converges to compute the optimal policy from optimal state values. Alternatively, in **policy iteration** it is used to compute the best policy $\pi$ for currently estimated state values.
+- **Policy iteration**: Encapsulates both **policy evaluation** and **policy extraction** for iterative convergence to an optimal policy. Outperforms **value iteration**: policies converge faster than values of states.
+
+## References:
+
+1. ([Berkeley AI](https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/solve.html)).
