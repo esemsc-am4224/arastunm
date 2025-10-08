@@ -2,7 +2,7 @@
 layout: page
 title: Markov Decision Processes
 description: A general overview on Markov Decision Processes (MDP)
-img: assets/img/project_covers/bsc_project_cover.png
+img: assets/img/blogs/mdp.png
 importance: 2
 category: blog
 ---
