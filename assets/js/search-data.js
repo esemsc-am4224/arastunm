@@ -50,6 +50,11 @@ ninja.data = [{
           description: "Optimal mineral recovery using a genetic algorithm approach.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/acds_3/";
+            },},{id: "projects-markov-decision-processes",
+          title: 'Markov Decision Processes',
+          description: "A general overview on Markov Decision Processes (MDP)",
+          section: "Projects",handler: () => {
+              window.location.href = "/arastunm/projects/blog_mdp/";
             },},{id: "projects-genetic-programming",
           title: 'Genetic Programming',
           description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
