@@ -7,8 +7,6 @@ importance: 2
 category: blog
 ---
 
-# Markov Decision Processes
-
 - [Introduction](#introduction)
 - [Bellman Equation](#the-bellman-equation-solving-an-mdp)
 - [Value Iteration](#value-iteration)
@@ -23,7 +21,7 @@ $$
 P(S_{t+1} = s_{t+1} | S_t = s_t, A_t = a_t) 
 $$
 
-MDP is defined by a set of states $S$ and a set of actions $A$. A transition function $T(s, a, s')$ (which encodes the memoryless property $P(s' | s, a)$) represents probability of an agent taking an action $a \in A$ from a state $s \in S$ to end up in a new state $s' \in S$. Finally, a reward function $R(s, a, s')$ that guides the optimisation. MDP is constructred similar to a state-space graph with a few additional caveats.
+MDP is defined by a set of states $S$ and a set of actions $A$. A transition function $T(s, a, s')$ (which encodes the memoryless property $P(s' | s, a)$ ) represents probability of an agent taking an action $a \in A$ from a state $s \in S$ to end up in a new state $s' \in S$. Finally, a reward function $R(s, a, s')$ that guides the optimisation. MDP is constructred similar to a state-space graph with a few additional caveats.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -31,7 +29,7 @@ MDP is defined by a set of states $S$ and a set of actions $A$. A transition fun
     </div>
 </div>
 <div class="caption">
-    Markov Decision Process [Berkeley AI](https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/solve.html)
+    Markov Decision Process
 </div>
 
 Agents goal is to maximize the reward across all timesteps. This can be expressed as the maxmisation of the following utility function:
@@ -115,7 +113,7 @@ Once we have the optimal Q-values for each state $s$ and action $a$, we simply f
 
 ## Policy Iteration
 
-The value iteration is costly, with a poor runtime of $O(|S|^2|A|)$. The policy as computed by policy extraction generally converges significantly faster than the values themselves. Hence, if all we want to determine is the optimal policy for MDP, the value iteration does a lot of overcomputation. **Policy iteration** is an alternative that fixes these flaws. First we define an initial policy (which can be arbitrary, but will converge faster the closer it is to eventual optimal policy). Then we repeat the following 2 steps until convergence. 
+The value iteration is costly, with a poor runtime of $O(|S|^2|A|)$ . The policy as computed by policy extraction generally converges significantly faster than the values themselves. Hence, if all we want to determine is the optimal policy for MDP, the value iteration does a lot of overcomputation. **Policy iteration** is an alternative that fixes these flaws. First we define an initial policy (which can be arbitrary, but will converge faster the closer it is to eventual optimal policy). Then we repeat the following 2 steps until convergence. 
 
 1. Evaluate the current policy with **policy evaluation**. Since we are fixing a single action for each state, we no longer need the $\max$ operator. Policy evaluation means computing $V^\pi(s)$ for all states $s$. Each $V^{\pi_i}(s)$ can be computed by following this system:
 
