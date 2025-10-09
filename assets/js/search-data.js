@@ -50,6 +50,11 @@ ninja.data = [{
           description: "Optimal mineral recovery using a genetic algorithm approach.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/acds_3/";
+            },},{id: "projects-adversarial-search-algorithms",
+          title: 'Adversarial Search Algorithms',
+          description: "Minimax, Expectimax, Monte Carlo Tree Search",
+          section: "Projects",handler: () => {
+              window.location.href = "/arastunm/projects/blog_asa/";
             },},{id: "projects-markov-decision-processes",
           title: 'Markov Decision Processes',
           description: "A general overview on Markov Decision Processes (MDP)",
