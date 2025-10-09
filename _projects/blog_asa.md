@@ -35,7 +35,7 @@ Here our actions $a$ are deterministic, and or gain directly corresponds to oppo
 **Minimax** is a zero-sum game that runs under the assumption that opponent behaves optimally. **State value** is the optimal value/score attainable by an agent/player which controls that state $s$. A **terminal state** is the end state of the game (e.g., win/loss). **Game tree** is a graph representing all possible game states within our sequential game (all possible ways a game can pan out). Akin to a search tree, children are successor states following an action $a$ from current state $s$. A states $s$ value is determined as the best possible outcome (**utility**). The value of a terminal state is known as **terminal utility** which is a deterministic (except in stochastic games), known value. The value of a **non-terminal** state is determined as the $\max$ of the values of its children. In general:
 
 $$
-\forall{non-terminal \ states},\ V(s) = \max_{s' \in{successors(s)}} V(s') 
+\forall{non{-}terminal \ states},\ V(s) = \max_{s' \in{successors(s)}} V(s') 
 $$
 
 $$
@@ -53,11 +53,11 @@ In adversarial settings, an agent having control over a node simply means that n
 We can formalise the minimax value assignment as follows:
 
 $$
-\forall{agent-controlled \ states},\ V(s) = \max_{s' \in{successors(s)}} V(s') 
+\forall{agent{-}controlled \ states},\ V(s) = \max_{s' \in{successors(s)}} V(s') 
 $$
 
 $$
-\forall{opponent-controlled \ states},\ V(s) = \min_{s' \in{successors(s)}} V(s') 
+\forall{opponent{-}controlled \ states},\ V(s) = \min_{s' \in{successors(s)}} V(s') 
 $$
 
 $$
@@ -92,7 +92,7 @@ Each $f_i(s)$ corresponds to a feature extracted from an input state $s$. Each f
 Minimax is often overly pessimistic (responds to an optimal opponent). Some scenarious involve inherent randomness (card or dice games) or unpredictable opponents (also see Markov Decision Processes). **Expectimax** is a generalisation of minimax used to capture this randomness. We introduce chance nodes that compute **expected utility** or expected value to consider the average-case scenario:
 
 $$
-\forall{agent-controlled \ states},\ V(s) = \max_{s' \in{successors(s)}} V(s') 
+\forall{agent{-}controlled \ states},\ V(s) = \max_{s' \in{successors(s)}} V(s') 
 $$
 
 $$
@@ -117,7 +117,7 @@ We see that minimax and expectimax follow the alternating pattern of **maximiser
 
 ### Note: General Games
 
-Similarly, not all games are **zero-sum**. Agents may involve different tasks that do not directly invovle strict competition with one another. Such game trees are characterised by **Multi-agent utilities**. No there is no single alternating value, instead there is a tuple of utilities/values (for each agent). Each agent attempts to maximise its own utility and ignores the utilities of other agents. General games with multi-agent utilities are prime examples of rise of behaviour through computation. These setups invoke cooperation among agents (final utility tuple at the root tends to yield a reasonable utility for all agents).
+Similarly, not all games are **zero-sum**. Agents may involve different tasks that do not directly involve strict competition with one another. Such game trees are characterised by **Multi-agent utilities**. No there is no single alternating value, instead there is a tuple of utilities/values (for each agent). Each agent attempts to maximise its own utility and ignores the utilities of other agents. General games with multi-agent utilities are prime examples of rise of behaviour through computation. These setups invoke cooperation among agents (final utility tuple at the root tends to yield a reasonable utility for all agents).
 
 ## Monte Carlo Tree Search (MCTS)
 
