@@ -54,7 +54,7 @@ Typically $\gamma$ is selected to strictly range between $0 < \gamma < 1$. Negat
 
 Solving a Markov Decision Process means finding an optimal policy $\pi^*: S \to A$, a function mapping each state $s \in S$ and action $a \in A$. An explicit policy defines a reflex agent: given a state $s$, an agent at $s$ will select the action $a = \pi(s)$ as the next appropriate step without consideration of future consequences. An optimal policy $\pi$ should yield maximum expected total utility or reward. 
 
-1. The expected total utility value or reward an optimally-behaving agent starting at state $s$ would receive is denoted by $V^*(s)$. 
+1. The expected total utility value or reward an optimally-behaving agent starting at state $s$ would receive is denoted by $V^*(s)$ (aka the cumulative reward). 
 2. The expected total utility value or reward an optimally-behaving agent starting at state $s$ at taking the action $a$ would receive can be denoted by $Q^*(s, a)$.
 
 Hence the **Bellman equation** and the **Q-value** can be defined as:
@@ -72,18 +72,18 @@ $$
 V^*(s) = \max_a Q^*(s, a)
 $$
 
-For example, $ \big[ R(s, a, s') + \gamma V^*(s') \big] $ represents the total utility the agent recieves by first taking action $a$ from $s$ to arrive at $s'$, and then acting optimally from state $s'$: $V^*(s')$ along with a discount factor $\gamma$ to account for the passage of one timestep.
+For example, $\big[ R(s, a, s') + \gamma V^*(s') \big]$ represents the total utility the agent recieves by first taking action $a$ from $s$ to arrive at $s'$, and then acting optimally from state $s'$: $V^*(s')$ along with a discount factor $\gamma$ to account for the passage of one timestep. The inner formula $\sum_{s'}(.)$ represents the total utility (expected return/reward) for taking action $a$ from state $s$ considering all possible next states $s'$. Finally encapsulating all with $\max_a (.)$ suggests the agent will select the action $a$ that maximises this expected total return.
 
 
 ## Value Iteration
 
-A core equation in reinforcement learning is known as the **Bellman optimality update** equation. It is also known as the **value iteration** update rule used to compute the optimal value function $V^*(s)$ in MDP. Time-limited value for a state $s$ with a time of $k$ timestemps is denoted as $V_k(s)$. To start with the value update, we initialise $V_0(s) = 0$ for $\forall s$; no rewards of no action is taken. Then we repeat the following optimality update rule until convergence (that is until $\forall s, V_{k+1}(s) = V_k(s)$):
+A core equation in reinforcement learning is known as the **Bellman optimality update** equation. It is also known as the **value iteration** update rule used to compute the optimal value function $V^*(s)$ in MDP. Time-limited value for a state $s$ with a time of $k$ timestemps is denoted as $V_k(s)$. To start with the value update, we initialise $V_0(s) = 0$ for $\forall s$; no rewards if no action is taken. Then we repeat the following optimality update rule until convergence (that is until $\forall s, V_{k+1}(s) = V_k(s)$) using the following iterative algorithm:
 
 $$
 \forall s \in S, \quad V_{k+1}(s) \leftarrow \max_a \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V_k(s') \big]
 $$
 
-At each iteration $k$, we use time-limited values with limit $k$ for each state to generate time-limited values with limit $k+1$. That is, we iteratively build up solution for larger subproblems (all the $V_{k+1}$). We take the maximum over all actions $a$, because we assume the agent acts optimally (maximum expected utility over all possible actions from $s$). We dynamically update the new estimate $V_{k+1}(s)$ with the best possible expected return. You can also come across with following definitions used for conciseness (where $B$ is the Bellman operator):
+For each $s$ in $S$, we assign a new value $V_{k+1}(s)$ equal to the maximum expected utility computed from the current estimate $V_k$. At each iteration $k$, we use time-limited values with limit $k$ for each state to generate time-limited values with limit $k+1$. That is, we iteratively build up solution for larger subproblems (all the $V_{k+1}$). We take the maximum over all actions $a$, because we assume the agent acts optimally (maximum expected utility over all possible actions from $s$). We dynamically update the new estimate $V_{k+1}(s)$ with the best possible expected return. You can also come across with following definitions used for conciseness (where $B$ is the Bellman operator):
 
 $$
 U_{k+1}(s) \leftarrow \max_a \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V_k(s') \big]
