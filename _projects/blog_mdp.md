@@ -3,7 +3,7 @@ layout: page
 title: Markov Decision Processes
 description: A general overview on Markov Decision Processes (MDP)
 img: assets/img/blogs/mdp.png
-importance: 2
+importance: 1
 category: blog
 ---
 
@@ -72,7 +72,7 @@ $$
 V^*(s) = \max_a Q^*(s, a)
 $$
 
-For example, $\big[ R(s, a, s') + \gamma V^*(s') \big]$ represents the total utility the agent recieves by first taking action $a$ from $s$ to arrive at $s'$, and then acting optimally from state $s'$: $V^*(s')$ along with a discount factor $\gamma$ to account for the passage of one timestep. The inner formula $\sum_{s'}(.)$ represents the total utility (expected return/reward) for taking action $a$ from state $s$ considering all possible next states $s'$. Finally encapsulating all with $\max_a (.)$ suggests the agent will select the action $a$ that maximises this expected total return.
+For example, $[ R(s, a, s') + \gamma V^*(s') ]$ represents the total utility the agent recieves by first taking action $a$ from $s$ to arrive at $s'$, and then acting optimally from state $s'$: $V^*(s')$ along with a discount factor $\gamma$ to account for the passage of one timestep. The inner formula $\sum_{s'}(.)$ represents the total utility (expected return/reward) for taking action $a$ from state $s$ considering all possible next states $s'$. Finally encapsulating all with $\max_a (.)$ suggests the agent will select the action $a$ that maximises this expected total return.
 
 
 ## Value Iteration
