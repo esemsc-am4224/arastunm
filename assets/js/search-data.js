@@ -60,6 +60,11 @@ ninja.data = [{
           description: "A general overview on Markov Decision Processes (MDP)",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/blog_mdp/";
+            },},{id: "projects-rl-fundamentals",
+          title: 'RL Fundamentals',
+          description: "Temporal Difference Learning, Q-Learning, Approximate Q-Learning",
+          section: "Projects",handler: () => {
+              window.location.href = "/arastunm/projects/blog_rl/";
             },},{id: "projects-genetic-programming",
           title: 'Genetic Programming',
           description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
