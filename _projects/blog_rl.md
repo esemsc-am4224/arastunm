@@ -1,0 +1,197 @@
+---
+layout: page
+title: RL Fundamentals
+description: Temporal Difference Learning, Q-Learning, Approximate Q-Learning
+img: assets/img/blogs/rl.png
+importance: 1
+category: blog
+---
+
+- [Introduction](#introduction)
+- [Model-Based Learning](#model-based-learning)
+- [Model-Free Learning](#model-free-learning)
+- [Direct Evaluation](#direct-evaluation)
+- [Temporal Difference Learning](#temporal-difference-learning)
+- [Q-Learning](#q-learning)
+- [Approximate Q-Learning](#approximate-q-learning)
+- [Exploration and Exploitation](#exploration-and-exploitation)
+
+
+## Introduction
+
+Solving Markov Decision Processes (MDP) (value and policy iteration) is an example of **offline planning** (agents have full knowledge of the transition $T$ and reward $R$ functions). In **online planning** the agent has no prior knowledge of rewards or transitions in the world. Instead the agent tries **exploration** and receives subsequent environment information (possible successor states and their reward). **Reinforcement learning** is the process of estimating an optimal policy $\pi^*(s)$ through this information. The agent then uses this policy $\pi$ for **exploitation** or reward maximisation.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/rl.png" height="300" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+### Terminology
+
+At each timestep, the agent starts in a state $s$, then takes an action $a$ and ends up in a successor state $s'$ attaining some reward $r$. Each ($s, a, s', r$) tuple is a **sample**. An **episode** is a collection of samples collected by agent taking actions $a$ until arriving at a terminal state. Agents go through many episodes (exploration) to collect sufficient learning data. There are 2 types of reinforcement learning:
+
+- **Model-based learning** attempts to estimate the $T$ and $R$ functions through collected samples, then uses them to solve the MDP (value or policy iteration).
+- **Model-free learning** attempts to estimate the $V(s)$ or $Q(s,a)$ of states directly (no memory to construct a model of rewards and transitions).
+
+
+## Model-Based Learning
+
+Agent generates an approximation of the transition function, $\hat{T}(s, a, s')$ through the number of times it arrives in each state $s'$ after entering each $Q(s, a)$. We **normalise** the counts collected; divide each observed tuple $(s, a, s')$ by the number of instances where agent was in $Q(s, a)$. Similarly, $\hat{R}$ function can be estimated from rewards reaped during exploration. For example, assume $S = \set{A, B, C, D, E, x}$, $A = \set{north, south, east, west, exit}$, and $\gamma = 1$:
+
+$$
+\hat{T}(C, east, A) = \frac{\#(A, exit, x)}{\#(A, exit)} = \frac{1}{4} = 0.25
+$$
+
+$$
+\hat{R}(C, east, A) = -1
+$$
+
+By the **law of large numbers**, as we collect/discover more samples $(s, a, s')$, $\hat{T}$ will converge towards $T$ and $\hat{R}$ will acquire knowledge of previously undiscovered rewards. When we see fit, we terminate agent's training to generate policy $\pi_{exploit}$, we run value or policy iteration with $\hat{T}$ and $\hat{R}$ and use $\pi_{exploit}$ for exploitation. Hence, in agent training we seek learning, in policy generation we seek reward maximisation.
+
+
+## Model-Free Learning
+
+It can be expensive to maintain counts for every $(s, a, s')$ tuple seen, **model-free learning** bypasses maintaining counts. Model-free learning algorithms include **direct evaluation**, **temporal difference learning** (both passive RL algorithms), and **Q-learning**. (an active RL algorithm). In **passive reinforcement learning** algorithms, agent is given $\pi$ to follow and learns $\forall{s}, \ V(s)$ under that policy as it experiences episodes (similar to policy evaluation in MDPs when $T$ and $R$ are known). In **active reinforcement learning** algorithms, the agent can use the feedback it receives to iteratively update $\pi$ while learning, until determining $\pi^*$ after sufficient exploration.
+
+### Direct Evaluation
+
+**Direct** evaluation fixes some policy $\pi$ and have the agent experience several episodes while following $\pi$. Agent collects samples through episodes and maintains counts of total utility obtained from each visited $s$ (that is the total utility from that $s$ to termination) and then number of times it visisted $s$. At termination, we calculate estimate value of $s$ by dividing total utility obtained by number of $s$ visits. Say state $C$ was visited $4$ times, and by following until the terminal state we acquired net rewards of $9 + 9 + 9 + (-11) = 16$. Then, $V^\pi(s) = 16/4 = 4$.
+
+Direct evaluation eventually learns al state values, though often unnecessarily slow to converge (wastes information about transitions between states).
+
+### Temporal Difference Learning
+
+**Temporal difference learning** (TD learning) uses the idea of learning from every experience. Recall the policy evaluation:
+
+$$
+V^\pi(s) = \sum_{s'} T(s, \pi(s), s') \big[R(s, \pi(s), s') + \gamma V^\pi(s')\big]
+$$
+
+Each of these equations equates the value of one $s$ to the weighted average over discounted values of $s'$ plus the rewards repeated in transitioning to them. TD learning tries to answer the question of how to compute this weighted average without the weights. It does so with an **exponential moving average**. We begin by initialising $\forall{s}, \ V^\pi(s) = 0$. At each time step, an agent takes action $\pi(s)$ from a state $s$, transitions to state $s'$ and receives reward $R(s, \pi(s), s')$. We can obtain a **sample value** by summing the recieved reward with the discounted current value of $s'$ under $\pi$.
+
+$$
+sample = R(s, \pi(s), s') + \gamma V^\pi(s')
+$$
+
+This sample is a new estimate for $V^\pi(s)$. Then we incorporate this sample estimate into our existing model with the exponential moving average (adhering to the following update rule):
+
+$$
+V^\pi(s) \leftarrow (1 - \alpha) V^\pi(s) + \alpha \cdot sample
+$$
+
+Above $\alpha$ is a parameter constrained by $0 \leq \alpha \leq 1$ known as the **learning rate**. It specifies the weight we want to assign to our existing and new sampled estimate models. Typically, we start with $\alpha = 1$ (assigning $V^\pi(s)$ to $sample$) and slowly shrink i towards 0. Formulating the estimated value of state $s$ after the $k^{th}$ update and the $k^{th}$ sample, we can re-express our update rule:
+
+$$
+V^{\pi}_k(s) \leftarrow (1 - \alpha)V^\pi_{k-1}(s) + \alpha \cdot sample_k
+$$
+
+If we expand this recursive definition for $V^\pi_k(s)$ we see:
+
+$$
+V^\pi_k(s) \leftarrow \alpha \cdot \big[(1 - \alpha)^{k - 1} \cdot sample_1 + \dots + (1 - \alpha) \cdot sample_{k-1} + sample_k]
+$$
+
+Because $0 \leq (1 - \alpha) \leq 1$ as we raise the quantity ($1 - \alpha$) to increasingly larger powers, it grows closer and closer to 0. By the update rule expansion we derived, this means older samples are given exponentially less weight (hence temporal difference learning). We want this as older samples are computed using older (and hence worse) versions of our model for $V^\pi(s)$. Overall:
+
+- We use information about state transitions as we get them (we are using iteravely updated versions of $V^\pi(s')$ when calculating our $samples$). Whereas direct evaluation waits until the end to perform any computation.
+- We give exponentially less weight to older, less accurate $samples$.
+- Converge to true state values much faster (fewer episodes) than direct evaluation.
+
+
+### Q-Learning
+
+Both direct evaluation and TD learning have a major inherent issue that they require finding optimal policy $\pi^*$ for our agent, which requires knowledge of Q-values of states. And to compute Q-values, we require $T$ and $R$ as dictated by the Bellman equation:
+
+$$
+Q^*(s, a) = \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V^*(s') \big]
+$$
+
+As a result, the passive RL methods are used in tandem with some model-based learning to acquire estimates of $T$ and $R$. Then effectively update the policy $\pi$ followed by the learning agent. **Q-learning** solves this issue by proposing learning Q-values of states directly (bypassing the need to know $V(s)$, $T$, or $R$). Q-learning is entirely model-free. It uses the following update rule to perform **Q-value iteration**:
+
+$$
+Q_{k+1}(s, a) \leftarrow \sum_{s'}T(s, a, s') \big[R(s, a, s') + \gamma \max_{a'}Q_k(s', a') \big]
+$$
+
+With Q-value iteration, Q-learning is dervied the same way as TD learning, by acquiring Q-value samples, and incorporating them into an exponential moving average:
+
+$$
+sample = R(s, a, s') + \gamma \max_{a'}Q(s', a')
+$$
+
+$$
+Q(s, a) \leftarrow (1 - \alpha)Q(s, a) + \alpha \cdot sample
+$$
+
+As long as we decrease the learning rate $\alpha$ at an appropriate pace (spend enough time in exploration), Q-learning learng the optimal Q-values for every Q-state. Unlike passive RL techniques, Q-learning can learn $\pi_*$ directly (even by taking suboptimal or random actions). This is called **off-policy learning** (contrary to **on-policy learning**).
+
+
+### Approximate Q-Learning
+
+Q-learning stores all Q-values for states in tabular form, which is not efficient given most RL applications have millions of states. **Approximate Q-learning** accounts for this by learning about a few general situations and extrapolating to many similar situations. The key to generalising learning experiences is **feature-based representation** of states. We represent each $s$ as a vector known as **feature vector**. For example a Pacman feature vector may include $\set{dist\_closest\_ghost, dist\_closest\_food, num\_ghosts, is\_trapped}$. With feature vectors, we can treat $V(s)$ and $Q(s,a)$ as linear value functions:
+
+$$
+V(s) = w_1 \cdot f_1(s) + w_2 \cdot f_2(s) + \dots + w_n \cdot f_n(s) = \vec{w} \cdot \vec{f}(s)
+$$
+
+$$
+Q(s, a) = w_1 \cdot f_1(s, a) + w_2 \cdot f_2(s, a) + \dots + w_n \cdot f_n(s, a) = \vec{w} \cdot \vec{f}(s, a)
+$$
+
+$$
+\vec{f}(s) = \big[f_1(s) \ f_2(s) \dots f_n(s)\big]^T
+$$
+
+$$
+\vec{f}(s, a) = \big[f_1(s, a) \ f_2(s, a) \dots f_n(s, a)\big]^T
+$$
+
+Representing them as feature vectors for state $s$ and Q-state $Q(s, a)$ respectively, with $\vec{w} = [w_1, w_2, \dots, w_n]$ representing a weight vector. Then we define **difference** as:
+
+$$
+difference = \big[R(s, a, s') + \gamma \max{a'}Q(s', a')\big] - Q(s, a)
+$$
+
+Approximate Q-learning works almost identically to Q-learning by using the following update rule:
+
+$$
+w_i \leftarrow w_i + \alpha \cdot difference \cdot f_i(s, a)
+$$
+
+Rather than storing Q-values for each and every state, we only need to store a single weight vector and compute Q-values on-demand as needed. We get a more generalised and memory-efficient version of Q-learning. 
+
+
+## Exploration and Exploitation
+
+We define what "sufficient exploration" is based on two methods for distributing time between exploration and exploitation: **$\epsilon$-Greedy Policies** and **Exploration Functions**.
+
+**$\epsilon$-Greedy Policies** define some probability $0 \leq \epsilon \leq 1$ and act randomly and explore with probability $\epsilon$ (and accordingly exploit with probability $1-\epsilon$). With large values, even after learning the optimal policy the agent will behave mostly randomly. With smaller values, agent will explore less leading the equipped algorithm to learn $\pi^*$ very slowly. \epsilon must be manually tuned (lowered over time to see results).
+
+**Exploration Functions** avoid the manual tuning process of $\epsilon$. They use modified Q-value iteration update to give some perference to visiting less-visited states (promoting exploration) through an exploration function $f$;
+
+$$
+Q(s, a) \leftarrow (1 - \alpha)Q(s, a) + \alpha \cdot \big[R(s, a, s') + \gamma \max_{a'}f(s', a')\big]
+$$
+
+$$
+f(s, a) = Q(s, a) + \frac{k}{N(s, a)}
+$$
+
+Where $k$ is predetermined value, N(s, a) denotes number of times $Q(s, a)$ has been visited. Agents in $s$ will always select $a$ with highest $f(s, a)$, and hence never make probabilistic decisions between exploration and exploitation (is it automatically encoded in $f$). As states are visited more often ($N(s, a) \rightarrow \infty$) the bonus decreases towards $0$, and $f(s, a)$ regresses to $Q(s, a)$ (promoting exploitation).
+
+
+## Summary
+
+RL has an underlying MDP, and the goal is to solve this MDP by deriving $\pi^*$. However, in RL we lack knowledge of $T$, $R$ for the underlying MDP. Agents must learn the optimal policy through online trial-by-error computation. The notion of **regret** is used to quantify performance of RL algorithms. It captures the difference between total reward accumulated if we acted optimally, and total reward we accummulated by running the algorithm.
+
+- **Model-based learning** runs computations to estimate $\hat{T}$, $\hat{R}$, and uses MDP-solving methods (value and policy iteration) with these estimates.
+- **Model-free learning** avoids estimations of $\hat{T}$, $\hat{R}$, instead directly estimating $V(s)$ or $Q(s, a)$.
+- **Direct evaluation** follows a policy $\pi$ and simply counts total rewards reaped from each state (to terminal state) and the number of state visits to then compute through *normalisation* (slow and wasteful of information between state transitions). 
+- **TD learning** also follows a policy $\pi$ as uses *exponential moving average* with sampled values until convergence. Like direct evaluation it is on-policy learning and learns values for a specific policy $\pi$ before deciding whether that policy has to be updated (is suboptimal).
+- **Q-learning** is off-policy (learns an optimal policy even when making suboptimal actions), learns the $\pi^*$ directly through trial and error with $Q(s, a)$ iteration updates.
+- **Approximate Q-learning** uses feature-based representation for states to generalise learning and save memory.
+
+
+## References
+
+1. ([Berkeley AI](https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/solve.html)).
