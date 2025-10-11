@@ -2,7 +2,7 @@
 layout: page
 title: Storm Prediction
 description: Real-time lightning storm predictions with deep learning.
-img: assets/img/project_covers/acds_2_cover.png
+img: assets/img/acds2/storm_pred_sample.png
 importance: 1
 category: work
 related_publications: false

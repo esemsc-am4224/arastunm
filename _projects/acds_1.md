@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Deep Impact
-description: Airburst solver and airblast damage mapper.
-img: assets/img/project_covers/acds_1_cover.png
+description: Numerical airburst solver and an airblast hazard mapper.
+img: assets/img/acds1/solver_workflow.png
 importance: 1
 category: work
 related_publications: false

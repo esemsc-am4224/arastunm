@@ -1,6 +1,6 @@
 ---
 layout: page
-title: RL Fundamentals
+title: RL Core
 description: Temporal Difference Learning, Q-Learning, Approximate Q-Learning
 img: assets/img/blogs/rl.png
 importance: 1
@@ -56,9 +56,9 @@ It can be expensive to maintain counts for every $(s, a, s')$ tuple seen, **mode
 
 ### Direct Evaluation
 
-**Direct** evaluation fixes some policy $\pi$ and have the agent experience several episodes while following $\pi$. Agent collects samples through episodes and maintains counts of total utility obtained from each visited $s$ (that is the total utility from that $s$ to termination) and then number of times it visisted $s$. At termination, we calculate estimate value of $s$ by dividing total utility obtained by number of $s$ visits. Say state $C$ was visited $4$ times, and by following until the terminal state we acquired net rewards of $9 + 9 + 9 + (-11) = 16$. Then, $V^\pi(s) = 16/4 = 4$.
+**Direct** evaluation fixes some policy $\pi$ and have the agent experience several episodes while following $\pi$. Agent collects samples through episodes and maintains counts of total utility obtained from each visited $s$ (that is the total utility from that $s$ to termination) and then number of times it visited $s$. At termination, we calculate estimate value of $s$ by dividing total utility obtained by number of $s$ visits. Say state $C$ was visited $4$ times, and by following until the terminal state we acquired net rewards of $9 + 9 + 9 + (-11) = 16$. Then, $V^\pi(s) = 16/4 = 4$.
 
-Direct evaluation eventually learns al state values, though often unnecessarily slow to converge (wastes information about transitions between states).
+Direct evaluation eventually learns all state values, though often unnecessarily slow to converge (wastes information about transitions between states).
 
 ### Temporal Difference Learning
 
@@ -68,7 +68,7 @@ $$
 V^\pi(s) = \sum_{s'} T(s, \pi(s), s') \big[R(s, \pi(s), s') + \gamma V^\pi(s')\big]
 $$
 
-Each of these equations equates the value of one $s$ to the weighted average over discounted values of $s'$ plus the rewards repeated in transitioning to them. TD learning tries to answer the question of how to compute this weighted average without the weights. It does so with an **exponential moving average**. We begin by initialising $\forall{s}, \ V^\pi(s) = 0$. At each time step, an agent takes action $\pi(s)$ from a state $s$, transitions to state $s'$ and receives reward $R(s, \pi(s), s')$. We can obtain a **sample value** by summing the recieved reward with the discounted current value of $s'$ under $\pi$.
+Each of these equations equates the value of one $s$ to the weighted average over discounted values of $s'$ plus the rewards reaped in transitioning to them. TD learning tries to answer the question of how to compute this weighted average without the weights. It does so with an **exponential moving average**. We begin by initialising $\forall{s}, \ V^\pi(s) = 0$. At each time step, an agent takes action $\pi(s)$ from a state $s$, transitions to state $s'$ and receives reward $R(s, \pi(s), s')$. We can obtain a **sample value** by summing the received reward with the discounted current value of $s'$ under $\pi$.
 
 $$
 sample = R(s, \pi(s), s') + \gamma V^\pi(s')
@@ -113,7 +113,7 @@ $$
 Q_{k+1}(s, a) \leftarrow \sum_{s'}T(s, a, s') \big[R(s, a, s') + \gamma \max_{a'}Q_k(s', a') \big]
 $$
 
-With Q-value iteration, Q-learning is dervied the same way as TD learning, by acquiring Q-value samples, and incorporating them into an exponential moving average:
+With Q-value iteration, Q-learning is derived the same way as TD learning, by acquiring Q-value samples, and incorporating them into an exponential moving average:
 
 $$
 sample = R(s, a, s') + \gamma \max_{a'}Q(s', a')
@@ -123,7 +123,7 @@ $$
 Q(s, a) \leftarrow (1 - \alpha)Q(s, a) + \alpha \cdot sample
 $$
 
-As long as we decrease the learning rate $\alpha$ at an appropriate pace (spend enough time in exploration), Q-learning learng the optimal Q-values for every Q-state. Unlike passive RL techniques, Q-learning can learn $\pi_*$ directly (even by taking suboptimal or random actions). This is called **off-policy learning** (contrary to **on-policy learning**).
+As long as we decrease the learning rate $\alpha$ at an appropriate pace (spend enough time in exploration), Q-learning learns the optimal Q-values for every Q-state. Unlike passive RL techniques, Q-learning can learn $\pi_*$ directly (even by taking suboptimal or random actions). This is called **off-policy learning** (contrary to **on-policy learning**).
 
 
 ### Approximate Q-Learning
@@ -165,7 +165,7 @@ Rather than storing Q-values for each and every state, we only need to store a s
 
 We define what "sufficient exploration" is based on two methods for distributing time between exploration and exploitation: **$\epsilon$-Greedy Policies** and **Exploration Functions**.
 
-**$\epsilon$-Greedy Policies** define some probability $0 \leq \epsilon \leq 1$ and act randomly and explore with probability $\epsilon$ (and accordingly exploit with probability $1-\epsilon$). With large values, even after learning the optimal policy the agent will behave mostly randomly. With smaller values, agent will explore less leading the equipped algorithm to learn $\pi^*$ very slowly. \epsilon must be manually tuned (lowered over time to see results).
+**$\epsilon$-Greedy Policies** define some probability $0 \leq \epsilon \leq 1$ and act randomly and explore with probability $\epsilon$ (and accordingly exploit with probability $1-\epsilon$). With large values, even after learning the optimal policy the agent will behave mostly randomly. With smaller values, agent will explore less leading the equipped algorithm to learn $\pi^*$ very slowly. $\epsilon$ must be manually tuned (lowered over time to see results).
 
 **Exploration Functions** avoid the manual tuning process of $\epsilon$. They use modified Q-value iteration update to give some perference to visiting less-visited states (promoting exploration) through an exploration function $f$;
 
@@ -177,7 +177,7 @@ $$
 f(s, a) = Q(s, a) + \frac{k}{N(s, a)}
 $$
 
-Where $k$ is predetermined value, N(s, a) denotes number of times $Q(s, a)$ has been visited. Agents in $s$ will always select $a$ with highest $f(s, a)$, and hence never make probabilistic decisions between exploration and exploitation (is it automatically encoded in $f$). As states are visited more often ($N(s, a) \rightarrow \infty$) the bonus decreases towards $0$, and $f(s, a)$ regresses to $Q(s, a)$ (promoting exploitation).
+Where $k$ is predetermined value, $N(s, a)$ denotes number of times $Q(s, a)$ has been visited. Agents in $s$ will always select $a$ with highest $f(s, a)$, and hence never make probabilistic decisions between exploration and exploitation (is it automatically encoded in $f$). As states are visited more often ($N(s, a) \rightarrow \infty$) the bonus decreases towards $0$, and $f(s, a)$ regresses to $Q(s, a)$ (promoting exploitation).
 
 
 ## Summary
