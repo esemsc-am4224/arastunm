@@ -62,9 +62,14 @@ ninja.data = [{
               window.location.href = "/arastunm/projects/blog_mdp/";
             },},{id: "projects-rl-core",
           title: 'RL Core',
-          description: "Temporal Difference Learning, Q-Learning, Approximate Q-Learning",
+          description: "Model-based and Model-free learning (Direct, TD, Q-Learning)",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/blog_rl/";
+            },},{id: "projects-rl-overview",
+          title: 'RL Overview',
+          description: "Taxonomy and a high-level overview",
+          section: "Projects",handler: () => {
+              window.location.href = "/arastunm/projects/blog_rl_overview/";
             },},{id: "projects-genetic-programming",
           title: 'Genetic Programming',
           description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
