@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RL Core
-description: Temporal Difference Learning, Q-Learning, Approximate Q-Learning
+description: Model-based and Model-free learning (Direct, TD, Q-Learning)
 img: assets/img/blogs/rl.png
 importance: 1
 category: blog
@@ -56,7 +56,7 @@ It can be expensive to maintain counts for every $(s, a, s')$ tuple seen, **mode
 
 ### Direct Evaluation
 
-**Direct** evaluation fixes some policy $\pi$ and have the agent experience several episodes while following $\pi$. Agent collects samples through episodes and maintains counts of total utility obtained from each visited $s$ (that is the total utility from that $s$ to termination) and then number of times it visited $s$. At termination, we calculate estimate value of $s$ by dividing total utility obtained by number of $s$ visits. Say state $C$ was visited $4$ times, and by following until the terminal state we acquired net rewards of $9 + 9 + 9 + (-11) = 16$. Then, $V^\pi(s) = 16/4 = 4$.
+**Direct evaluation** fixes some policy $\pi$ and have the agent experience several episodes while following $\pi$. Agent collects samples through episodes and maintains counts of total utility obtained from each visited $s$ (that is the total utility from that $s$ to termination) and then number of times it visited $s$. At termination, we calculate estimate value of $s$ by dividing total utility obtained by number of $s$ visits. Say state $C$ was visited $4$ times, and by following until the terminal state we acquired net rewards of $9 + 9 + 9 + (-11) = 16$. Then, $V^\pi(s) = 16/4 = 4$.
 
 Direct evaluation eventually learns all state values, though often unnecessarily slow to converge (wastes information about transitions between states).
 
@@ -149,7 +149,7 @@ $$
 Representing them as feature vectors for state $s$ and Q-state $Q(s, a)$ respectively, with $\vec{w} = [w_1, w_2, \dots, w_n]$ representing a weight vector. Then we define **difference** as:
 
 $$
-difference = \big[R(s, a, s') + \gamma \max{a'}Q(s', a')\big] - Q(s, a)
+difference = \big[R(s, a, s') + \gamma \max_{a'}Q(s', a')\big] - Q(s, a)
 $$
 
 Approximate Q-learning works almost identically to Q-learning by using the following update rule:
