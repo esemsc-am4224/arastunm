@@ -37,7 +37,7 @@ ninja.data = [{
               window.location.href = "/arastunm/projects/4_project/";
             },},{id: "projects-deep-impact",
           title: 'Deep Impact',
-          description: "Airburst solver and airblast damage mapper.",
+          description: "Numerical airburst solver and an airblast hazard mapper.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/acds_1/";
             },},{id: "projects-storm-prediction",
@@ -60,8 +60,8 @@ ninja.data = [{
           description: "A general overview on Markov Decision Processes (MDP)",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/blog_mdp/";
-            },},{id: "projects-rl-fundamentals",
-          title: 'RL Fundamentals',
+            },},{id: "projects-rl-core",
+          title: 'RL Core',
           description: "Temporal Difference Learning, Q-Learning, Approximate Q-Learning",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/blog_rl/";
