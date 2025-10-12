@@ -1,10 +1,11 @@
 ---
-layout: page
-title: RL Core
+layout: blog
+title: Reinforcement Learning Fundamentals
 description: Model-based and Model-free learning (Direct, TD, Q-Learning)
-img: assets/img/blogs/rl.png
-importance: 1
-category: blog
+thumbnail: assets/img/blogs/rl.png
+date: 2024-10-10 16:00:00
+tags: rl q-learning td-learning q-approximate
+categories: sample-posts
 ---
 
 - [Introduction](#introduction)

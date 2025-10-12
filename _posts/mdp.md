@@ -1,10 +1,11 @@
 ---
-layout: page
+layout: blog
 title: Markov Decision Processes
 description: A general overview on Markov Decision Processes (MDP)
-img: assets/img/blogs/mdp.png
-importance: 1
-category: blog
+thumbnail: assets/img/blogs/mdp.png
+date: 2024-10-08 16:00:00
+tags: mdp bellman value policy
+categories: sample-posts
 ---
 
 - [Introduction](#introduction)
@@ -27,9 +28,6 @@ MDP is defined by a set of states $S$ and a set of actions $A$. A transition fun
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/blogs/mdp.png" height="300" class="img-fluid rounded z-depth-1" %}
     </div>
-</div>
-<div class="caption">
-    Markov Decision Process
 </div>
 
 Agents goal is to maximize the reward across all timesteps. This can be expressed as the maxmisation of the following utility function:

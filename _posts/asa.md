@@ -1,10 +1,11 @@
 ---
-layout: page
+layout: blog
 title: Adversarial Search Algorithms
 description: Minimax, Expectimax, Monte Carlo Tree Search
-img: assets/img/blogs/mcts.jpeg
-importance: 1
-category: blog
+thumbnail: assets/img/blogs/mcts.jpeg
+date: 2024-10-09 16:00:00
+tags: games MCTS minimax expectimax
+categories: sample-posts
 ---
 
 - [Introduction](#introduction)
