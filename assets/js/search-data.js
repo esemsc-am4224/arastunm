@@ -9,19 +9,19 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/arastunm/";
     },
-  },{id: "nav-blog",
-          title: "blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/arastunm/blog/";
-          },
-        },{id: "nav-project",
-          title: "Project",
+  },{id: "nav-projects",
+          title: "Projects",
           description: "A collection of research (academic reports), work, and personal projects.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/arastunm/projects/";
+          },
+        },{id: "nav-blogs",
+          title: "Blogs",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/arastunm/blog/";
           },
         },{id: "nav-repositories",
           title: "Repositories",
@@ -68,26 +68,6 @@ ninja.data = [{
           description: "Optimal mineral recovery using a genetic algorithm approach.",
           section: "Projects",handler: () => {
               window.location.href = "/arastunm/projects/acds_3/";
-            },},{id: "projects-adversarial-search-algorithms",
-          title: 'Adversarial Search Algorithms',
-          description: "Minimax, Expectimax, Monte Carlo Tree Search",
-          section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/blog_asa/";
-            },},{id: "projects-markov-decision-processes",
-          title: 'Markov Decision Processes',
-          description: "A general overview on Markov Decision Processes (MDP)",
-          section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/blog_mdp/";
-            },},{id: "projects-rl-core",
-          title: 'RL Core',
-          description: "Model-based and Model-free learning (Direct, TD, Q-Learning)",
-          section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/blog_rl/";
-            },},{id: "projects-rl-overview",
-          title: 'RL Overview',
-          description: "Taxonomy and a high-level overview",
-          section: "Projects",handler: () => {
-              window.location.href = "/arastunm/projects/blog_rl_overview/";
             },},{id: "projects-genetic-programming",
           title: 'Genetic Programming',
           description: "BSc final project on exploring the capabilities Geometric Semantic Genetic Programming.",
