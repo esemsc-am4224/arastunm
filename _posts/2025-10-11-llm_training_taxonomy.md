@@ -3,7 +3,7 @@ layout: blog
 title: LLM Fine-Tuning: Overview & Taxonomy
 description: supervised fine-tuning, reinforcement learning
 thumbnail: assets/img/blogs/rl_taxonomy.png
-date: 2024-10-11 16:00:00
+date: 2025-10-11 16:00:00
 tags: llm fine-tuning sft rl
 categories: sample-posts
 ---
