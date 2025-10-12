@@ -1,6 +1,6 @@
 ---
-layout: blog
-title: LLM Fine-Tuning: Overview & Taxonomy
+layout: post
+title: LLM Fine-Tuning; Overview & Taxonomy
 description: supervised fine-tuning, reinforcement learning
 thumbnail: assets/img/blogs/rl_taxonomy.png
 date: 2025-10-11 16:00:00
