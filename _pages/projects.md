@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Project Blogs
+title: Project
 permalink: /projects/
 description: A collection of research (academic reports), work, and personal projects.
 nav: true
