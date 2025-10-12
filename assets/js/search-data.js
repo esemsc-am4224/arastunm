@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-llm-fine-tuning-overview-amp-taxonomy",
+        },{id: "post-vanilla-policy-gradient-methods",
+      
+        title: "Vanilla Policy Gradient Methods",
+      
+      description: "Theoretical foundations and REINFORCE",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/vpg_methods/";
+        
+      },
+    },{id: "post-llm-fine-tuning-overview-amp-taxonomy",
       
         title: "LLM Fine-Tuning; Overview &amp; Taxonomy",
       
