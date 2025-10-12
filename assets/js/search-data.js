@@ -37,15 +37,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-",
+        },{id: "post-llm-fine-tuning-overview-amp-taxonomy",
       
-        title: "",
+        title: "LLM Fine-Tuning; Overview &amp; Taxonomy",
       
-      description: "",
+      description: "supervised fine-tuning, reinforcement learning",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/arastunm/blog/2025/2025-10-11-llm_training_taxonomy/";
+          window.location.href = "/arastunm/blog/2025/llm_training_taxonomy/";
         
       },
     },{id: "post-reinforcement-learning-fundamentals",
