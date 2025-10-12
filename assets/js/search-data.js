@@ -37,7 +37,51 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-a-post-with-pseudo-code",
+        },{id: "post-",
+      
+        title: "",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/2025-10-11-llm_training_taxonomy/";
+        
+      },
+    },{id: "post-reinforcement-learning-fundamentals",
+      
+        title: "Reinforcement Learning Fundamentals",
+      
+      description: "Model-based and Model-free learning (Direct, TD, Q-Learning)",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/rl_core/";
+        
+      },
+    },{id: "post-adversarial-search-algorithms",
+      
+        title: "Adversarial Search Algorithms",
+      
+      description: "Minimax, Expectimax, Monte Carlo Tree Search",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/asa/";
+        
+      },
+    },{id: "post-markov-decision-processes",
+      
+        title: "Markov Decision Processes",
+      
+      description: "A general overview on Markov Decision Processes (MDP)",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/mdp/";
+        
+      },
+    },{id: "post-a-post-with-pseudo-code",
       
         title: "a post with pseudo code",
       
