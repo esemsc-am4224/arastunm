@@ -9,8 +9,15 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/arastunm/";
     },
-  },{id: "nav-project-blogs",
-          title: "Project Blogs",
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/arastunm/blog/";
+          },
+        },{id: "nav-project",
+          title: "Project",
           description: "A collection of research (academic reports), work, and personal projects.",
           section: "Navigation",
           handler: () => {
@@ -30,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "projects-project-4",
+        },{id: "post-a-post-with-pseudo-code",
+      
+        title: "a post with pseudo code",
+      
+      description: "this is what included pseudo code could look like",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2024/pseudocode/";
+        
+      },
+    },{id: "projects-project-4",
           title: 'project 4',
           description: "another without an image",
           section: "Projects",handler: () => {
