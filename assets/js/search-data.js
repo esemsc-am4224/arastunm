@@ -37,7 +37,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-vanilla-policy-gradient-methods",
+        },{id: "post-transformer-architecture",
+      
+        title: "Transformer Architecture",
+      
+      description: "Original design, BERT, GPT-1",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/transformers/";
+        
+      },
+    },{id: "post-deep-learning",
+      
+        title: "Deep Learning",
+      
+      description: "Key concepts, FFNs, Sequence Models",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/dl_core/";
+        
+      },
+    },{id: "post-vanilla-policy-gradient-methods",
       
         title: "Vanilla Policy Gradient Methods",
       
