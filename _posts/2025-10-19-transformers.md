@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Transformers
-description: Original design, BERT, Decoder-only
+title: Transformer Architecture
+description: Original design, BERT, GPT-1
 thumbnail: assets/img/blogs/transformer.png
 date: 2025-10-19 17:00:00
 tags: theory
@@ -13,8 +13,9 @@ categories: sample-posts
   - [Attention Mechanism](#attention-mechanism)
   - [Multi-Head Attention Layer](#multi-head-attention-layer)
   - [Feed-Forward Layer](#feed-forward-layer)
-- [BERT](#bert-bidirectional-encoder-representations-from-transformers)
+- [BERT](#bert)
 - [Decoder Only](#decoder-only-transformers)
+- [Additional Notes](#additional-notes)
 
 
 ## Original Transformer
@@ -176,12 +177,79 @@ $$
 
 ## BERT
 
-Bidirectional Encoder Representations from Transformers
+BERT stands for Bidirectional Encoder Representations from Transformers. It was developed to improve contextual understanding of unlabeled text across a broad range of tasks. The developers believe unidirectional techniques (where each token can only attent to previous tokens) restrict the power of pre-trained representations (e.g., GPT). They argued such restrictions can be harmful when applying fine-tuning approaches to token-level tasks (Question Answering, Named Entity Recognition) where it is crucial to incorporate context from both directions.
+
+To avoid unnecessary and costly training steps, transfer learning techniques are employed to separate the pre-training and fine-tuning phases. This features amkes LLMs like BERT the foundational models, with endless applications built on top of them. BERT achieved SoTA results in multiple NLP tasks including; QA, sentiment analysis, text generation, text summaries, and autocomplete tasks. There are a good number of BERT variants such as RoBERTa (larger training dataset with dynamic masking learning), and DistilBERT (smaller, faster, lighter variant with knowledge distillation techniques).  
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/bert.png" height="300" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+### Model Architecture
+
+BERT's model architecture is a multi-layer bidirectional Transformer encoder based on the original implementation. The initial report consisted of 2 model sizes:
+
+$$
+BERT_{BASE}(L=12, H=768, A=12, Params=110M) \\
+BERT_{LARGE}(L=24, H=1024, A=16, Params=340M)
+$$
+
+Here $L$ is number of layers, $H$ the hidden size, and $A$ number of self-attention heads. The input is able to represent a single sentence (or in general an arbitrary span of text), and a pair of sentences in one token sequence. The first token in the sequence is always a special classification token $[CLS]$. In classification tasks, the final hidden state corresponding to this token is used as the aggregate sequence representation. We differentiate the pair of sentences through a special token $[SEP]$, and a learned embeding (Added to every token) identifying them with their sentence ($A$ or $B$). The input embeddings are sum of the token embeddings, segmentation embeddings are the position embeddings. For example, $E_{input} = E_{my} + E_A + E_i$ represents an input representation for token $my$ in sentence $A$ at position $i$.
+
+### Pre-training BERT
+
+BERT is pre-trained using two unsupervised tasks. First, **Masked LM (MLM)** is used to mask some percentage of input tokens at random, and subsequently predict those masked tokens. The final hidden vectors corresponding to the mask tokens, are fed into an output softmax over the vocabulary (same as in a standard LM). BERT mask $15%$ of all tokens in each sequence. It only predicts masked words rather than reconstructing the entire input. Similarly, BERT also incorporates the **Next Sentence Prediction (NSP)** technique to understand the relationship between two sentences. NSP is a binarised task that can be trivially generated from any monolingual corpus (e.g., choose sentences $A, B$, that at random either actually follow each other $IsNext$ or don't $NotNext$). Pre-training towards this task is very beneficial to both QA and NLI.  BERT uses BookCorpus (800M words) and English Wikipedia (2500M words) as its pre-training corpus. Subsequently fine-tuning is straightforward as self-attention mechanism allows BERT to model many downstream tasks by swapping out the appropriate inputs and outputs. Compared to pre-training this step is also relatively inexpensive.
+
 
 ## Decoder-Only Transformers
 
+The **Generative Pre-trained Transformer 1** (GPT-1) is a foundational example of autoregressive and unidirectional transformer-based architectures. Unlike the original design, these models are decoder-only. They also introduce a semi-supervised approach with unsupervised **generative pre-training** state (learning initial parameters) and a supervised **discriminative fine-tuning** stage (adapting these parameters), resulting in robust transfer performance across diverse tasks. GPT-1 architecture is a 12 layer decoder-only transformer.
 
-### Side Note: Cross-Attention
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/gpt-1.png" height="300" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+### Pre-training GPT-1
+
+The general framework work consists of two stages. The first stage is learning a high-capacity language model on a large corpus of text (unsupervised pre-training). The second stage is fine-tuning to adapt the model to a discriminative task with labelled data. Given an unsupervised corpus of tokens $\mathcal{U} = \set{u_1, \dots, u_n}$, they use a standard language modeling objective to maximise the following likelihood ($k$ conext size, $\Theta$ model parameters) by training on stochastic gradient descent.
+
+$$
+L_1(\mathcal{U}) = \sum_i log P(u_i \mid u_{i-k}, \dots, u_{i-1}; \Theta)
+$$
+
+They use a multi-layer Transformer decoder for the language model, a variant of the original Transformer architecture. We prepare the input token sequence $\mathcal{U}$ through embedding $W_e$ and positional encoding $W_p$. This is followed by a decoder layer that consists of a masked multi-headed self-attention and FFN sublayers to produce output distribution over target tokens ($n$ is the number of layers).
+
+$$
+h_0 = UW_e + W_p
+$$
+$$
+h_l = \text{transformer\_block} (h_{l-1}) \ \forall_i \in [1, n]
+$$
+$$
+P(u) = softmax(h_n W^T_e)
+$$
+
+
+### Supervised Fine-tuning
+
+This is followed by a fine-tuning stage where we adapt the parameters to the supervised target task. We assume a labeled dataset $C$, where each instance consists of a sequence of input tokens $x^1, \dots, x^m$ along with a label $y$. The inputs are passed through our pre-trained model to obtain the final block's activation $h^m_l$, which is then fed into an added linear output layer with parameters $W_y$ to predict $y$ (our target labels). Giving us an objective to maximise. Overall the only extra parameters for fine-tuning are $W_y$ and embeddings for delimiter tokens.
+
+$$
+P(y \mid x^1, \dots, x^m) = softmax(h^m_l W_y)
+$$
+
+$$
+L_2(C) = \sum_{(x, y)} log P(y \mid x^1, \dots, x^m)
+$$
+
+
+## Additional Notes
+
+### Cross-Attention
 
 In **cross-attention**, the model processes two distinct sequences. For example, text and image embeddings, or encoder-decoder pairs in translation models. Here the queries come from one sequence, while the keys and values come from another. Because this setup does not rely on the sequence order in the same way, no causal mask is used.
 
@@ -189,7 +257,7 @@ $$
 CrossAtn(Q = E_{decoder}W_Q,\ K = E_{encoder}W_K,\ V = E_{encoder}W_V)
 $$
 
-### Side Note: Efficient Factorisation
+### Efficient Factorisation
 
 In some efficient Transformer variants, the value projection matrix $W_V$ maybe factorised into two smaller matrices to reduce parameter count and improve computational efficiency. This low-rank decomposition allows approximation of the same mapping with fewer parameters.
 
@@ -197,10 +265,10 @@ $$
 W_V \approx W^{\uarr}_V W^{\darr}_V
 $$
 $$
-W^{\uarr}_V \in R^{d_{model} \times r}, \ W^{\darr}_V \in R^{r \times d_k}, \ r \ll d_model
+W^{\uarr}_V \in R^{d_{model} \times r}, \ W^{\darr}_V \in R^{r \times d_k}, \ r \ll d_{model}
 $$
 
-### Side Note: Computational Complexity
+### Computational Complexity
 
 The attention matrix (attention pattern) $A$ for each head is of size $n \times n$, where $n$ is the context length (number of tokens). Both memory and compute scale quadratically $O(hn^2)$, a major bottleneck for large-context transformers. Several modern variants introduce sparsity or structured approximations to address this issue:
 
@@ -213,5 +281,5 @@ The attention matrix (attention pattern) $A$ for each head is of size $n \times 
 ## References
 
 - ([Viswani et al., 2017](https://arxiv.org/pdf/1706.03762))
-- ([Devlin et al., 2019](https://arxiv.org/pdf/1810.04805))
 - ([Radford et al., 2018](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf))
+- ([Devlin et al., 2019](https://arxiv.org/pdf/1810.04805))
