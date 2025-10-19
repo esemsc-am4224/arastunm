@@ -48,20 +48,20 @@ ninja.data = [{
           window.location.href = "/arastunm/blog/2025/vpg_methods/";
         
       },
-    },{id: "post-llm-fine-tuning-overview-amp-taxonomy",
+    },{id: "post-llm-fine-tuning-taxonomy",
       
-        title: "LLM Fine-Tuning; Overview &amp; Taxonomy",
+        title: "LLM Fine-Tuning Taxonomy",
       
-      description: "supervised fine-tuning, reinforcement learning",
+      description: "Supervised fine-tuning, reinforcement learning",
       section: "Posts",
       handler: () => {
         
           window.location.href = "/arastunm/blog/2025/llm_training_taxonomy/";
         
       },
-    },{id: "post-reinforcement-learning-fundamentals",
+    },{id: "post-reinforcement-learning",
       
-        title: "Reinforcement Learning Fundamentals",
+        title: "Reinforcement Learning",
       
       description: "Model-based and Model-free learning (Direct, TD, Q-Learning)",
       section: "Posts",
