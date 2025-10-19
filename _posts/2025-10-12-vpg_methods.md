@@ -4,7 +4,7 @@ title: Vanilla Policy Gradient Methods
 description: Theoretical foundations and REINFORCE
 thumbnail: assets/img/blogs/reinforce_alg.png
 date: 2025-10-12 16:00:00
-tags: rl vpg reinforce
+tags: theory
 categories: sample-posts
 ---
 
@@ -16,7 +16,7 @@ categories: sample-posts
 - [REINFORCE](#reinforce)
 
 
-## Introduction 
+## Introduction
 
 **Policy-based** methods learn a $\pi$ directly rather than the value of states and actions, that is $V(s)$ and $Q(s, a)$. Learning $\pi$ directly has advantages for applications with increasingly large state or action space. Notice that if the action space is infinite, we cannot perform a policy extraction, as this requires iteration over all $a \in A$, and extracting the one that maximises the reward. Learning a policy directly mitiages this. Two common policy-based methods are **policy iteration** and **policy gradients**. 
 
