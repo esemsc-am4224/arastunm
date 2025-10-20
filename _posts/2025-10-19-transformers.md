@@ -49,7 +49,10 @@ $$
 The cross-attention sublayer $MHA_{cross}$ is where the decoder queries encoder's hidden state $H$, to incorporate relevant context into predictions. After the final decoder layer, the model produces **logits** $Z$ for the next token prediction. Subsequently, we apply a liner transformation ($W^T_E$ often tied to the input embedding matrix). Finally, $softmax$ converts logits to a probability distribution over the vocabulary. The decoder then samples or greedily selects the next token based on these probabilities. An important note is that the final computation you perform to predict the next token (output of the decoder) is entirely the function of the **last vector** in the sequence.
 
 $$
-logits = ZW^T_E + b \\
+logits = ZW^T_E + b
+$$
+
+$$
 P(t_{t+1} \mid t_{\leq i}) = softmax(logits)
 $$
 
@@ -167,7 +170,7 @@ $$
 
 ## Feed-Forward Layer
 
-After each multi-headed attention block, Transformers apply a position-wise feed-forward network (**FFN**), also called the **MLP block**. While attention layers provide context mixing (context retrieval and integration mechanisms), FFN layers provide capacity expansion (acting as knowledge storage units). Each token's embedding is processed independently and identically by the same feed-forward network (no interaction between tokens at this stage). For each token representation $\vec{e}_i \in \mathbb{R}^{d_{model}}$, the feed-forward block applies 2 linear transformations with a non-linearity (commonly ReLU or GeLU) in between. Where $W_{\uarr} \in \mathbb{R}^{d_{model} \times d_{ff}}$ is the up-projection that expands dimensionality, $W_{\darr} \in \mathbb{R}^{d_{ff} \times d_{model}}$ is the down-projection that reduces dimensionality back. Note that $d_{ff}$ is usually 4 times larger than $d_{model}$. The updated token embedding is then computed via a residual connection. FFN is highly parallelisable as this operation is applied to all tokens independently. This isone of the key reasons Transformers scale efficiently to large models.
+After each multi-headed attention block, Transformers apply a position-wise feed-forward network (**FFN**), also called the **MLP block**. While attention layers provide context mixing (context retrieval and integration mechanisms), FFN layers provide capacity expansion (acting as knowledge storage units). Each token's embedding is processed independently and identically by the same feed-forward network (no interaction between tokens at this stage). For each token representation, the feed-forward block applies 2 linear transformations with a non-linearity (commonly ReLU or GeLU) in between. Where the up-projection expands dimensionality, and the down-projection reduces dimensionality back. Note that $d_{ff}$ is usually 4 times larger than $d_{model}$. The updated token embedding is then computed via a residual connection. FFN is highly parallelisable as this operation is applied to all tokens independently. This isone of the key reasons Transformers scale efficiently to large models.
 
 $$
 FNN(\vec{e}_i) = ReLU(W_{\uarr}\vec{e}_i + \vec{b}_{\uarr})W_{\darr} + \vec{b}_{\darr}
@@ -176,6 +179,19 @@ $$
 $$
 \vec{e}_i = \vec{e}_i + FFN(\vec{e}_i)
 $$
+
+$$
+\vec{e}_i \in \mathbb{R}^{d_{model}}
+$$
+
+$$
+W_{\uarr} \in \mathbb{R}^{d_{model} \times d_{ff}}
+$$
+
+$$
+W_{\darr} \in \mathbb{R}^{d_{ff} \times d_{model}}
+$$
+
 
 ## BERT
 
@@ -232,7 +248,7 @@ $$
 h_0 = UW_e + W_p
 $$
 $$
-h_l = \text{transformer\_block} (h_{l-1}) \ \forall_i \in [1, n]
+h_l = transformer\_block (h_{l-1}) \ \forall_i \in [1, n]
 $$
 $$
 P(u) = softmax(h_n W^T_e)
@@ -269,6 +285,7 @@ In some efficient Transformer variants, the value projection matrix $W_V$ maybe 
 $$
 W_V \approx W^{\uarr}_V W^{\darr}_V
 $$
+
 $$
 W^{\uarr}_V \in R^{d_{model} \times r}, \ W^{\darr}_V \in R^{r \times d_k}, \ r \ll d_{model}
 $$
