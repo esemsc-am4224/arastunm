@@ -123,6 +123,7 @@ We then apply a softmax normalisation row-wise (so that in each row $i$ the weig
 $$
 Attention(Q, K, V) = Z = softmax \bigg(\frac{Q K^T}{\sqrt{d_k}} \bigg) V
 $$
+
 $$
 E' = E + Z W^O
 $$
@@ -169,11 +170,12 @@ $$
 After each multi-headed attention block, Transformers apply a position-wise feed-forward network (**FFN**), also called the **MLP block**. While attention layers provide context mixing (context retrieval and integration mechanisms), FFN layers provide capacity expansion (acting as knowledge storage units). Each token's embedding is processed independently and identically by the same feed-forward network (no interaction between tokens at this stage). For each token representation $\vec{e}_i \in \mathbb{R}^{d_{model}}$, the feed-forward block applies 2 linear transformations with a non-linearity (commonly ReLU or GeLU) in between. Where $W_{\uarr} \in \mathbb{R}^{d_{model} \times d_{ff}}$ is the up-projection that expands dimensionality, $W_{\darr} \in \mathbb{R}^{d_{ff} \times d_{model}}$ is the down-projection that reduces dimensionality back. Note that $d_{ff}$ is usually 4 times larger than $d_{model}$. The updated token embedding is then computed via a residual connection. FFN is highly parallelisable as this operation is applied to all tokens independently. This isone of the key reasons Transformers scale efficiently to large models.
 
 $$
-FNN(\vec{e}_i) = ReLU(W_{\uarr}\vec{e}_i + \vec{b}_{\uarr})W_{\darr} + \vec{b}_{\darr} \\
-
-\vec{e}_i = \vec{e}_i + FFN(\vec{e}_i)
+FNN(\vec{e}_i) = ReLU(W_{\uarr}\vec{e}_i + \vec{b}_{\uarr})W_{\darr} + \vec{b}_{\darr}
 $$
 
+$$
+\vec{e}_i = \vec{e}_i + FFN(\vec{e}_i)
+$$
 
 ## BERT
 
@@ -192,7 +194,10 @@ To avoid unnecessary and costly training steps, transfer learning techniques are
 BERT's model architecture is a multi-layer bidirectional Transformer encoder based on the original implementation. The initial report consisted of 2 model sizes:
 
 $$
-BERT_{BASE}(L=12, H=768, A=12, Params=110M) \\
+BERT_{BASE}(L=12, H=768, A=12, Params=110M)
+$$
+
+$$
 BERT_{LARGE}(L=24, H=1024, A=16, Params=340M)
 $$
 
