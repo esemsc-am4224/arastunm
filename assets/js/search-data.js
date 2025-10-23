@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-transformer-architecture",
+        },{id: "post-deep-q-learning",
+      
+        title: "Deep Q-Learning",
+      
+      description: "Double Q-Learning and Deep Q-Networks",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/ddqn/";
+        
+      },
+    },{id: "post-transformer-architecture",
       
         title: "Transformer Architecture",
       
