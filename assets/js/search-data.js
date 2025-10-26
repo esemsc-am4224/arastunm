@@ -41,7 +41,7 @@ ninja.data = [{
       
         title: "Natural Policy Gradient Methods",
       
-      description: "General overview of DRPO and PPO",
+      description: "General overview of TRPO and PPO",
       section: "Posts",
       handler: () => {
         
