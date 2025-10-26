@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-deep-q-learning",
+        },{id: "post-natural-policy-gradient-methods",
+      
+        title: "Natural Policy Gradient Methods",
+      
+      description: "General overview of DRPO and PPO",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/npg_methods/";
+        
+      },
+    },{id: "post-deep-q-learning",
       
         title: "Deep Q-Learning",
       
