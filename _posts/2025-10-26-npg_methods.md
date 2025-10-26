@@ -2,8 +2,8 @@
 layout: post
 title: Natural Policy Gradient Methods
 date: 2025-10-26 16:00:00
-description: General overview of DRPO and PPO
-thumbnail: assets/img/blogs/ppo_clip.png
+description: General overview of TRPO and PPO
+thumbnail: assets/img/blogs/trpo.png
 tags: theory
 categories: sample-posts
 pseudocode: true
@@ -133,7 +133,6 @@ $$
 
 Below pseudocode shows a PPO algorithm that uses fixed-length trajectory segments. Each iteration, each of $N$ (parallel) actors collect $T$ timesteps of data. Then we construct the surrogate loss on these $NT$ timesteps of data, and optimise it with minibatch SGD (or Adam) for $K$ epochs.
 
-````markdown
 ```pseudocode
 \begin{algorithm}
 \caption{PPO, Actor--Critic Style}
@@ -149,7 +148,6 @@ Below pseudocode shows a PPO algorithm that uses fixed-length trajectory segment
 \end{algorithmic}
 \end{algorithm}
 ```
-````
 
 
 ## References
