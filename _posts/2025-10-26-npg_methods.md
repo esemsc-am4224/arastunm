@@ -138,51 +138,15 @@ Below pseudocode shows a PPO algorithm that uses fixed-length trajectory segment
 \caption{PPO, Actor--Critic Style}
 \begin{algorithmic}
 
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p < r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-
-\end{algorithmic}
-\end{algorithm}
-```
-
-```pseudocode
-
 \FOR{iteration = 1, 2, \ldots}
     \FOR{actor = 1, 2, \ldots, N}
-        \STATE Run policy $\pi_{\theta_{\text{old}}}$ in environment for $T$ timesteps
-        \STATE Compute advantage estimates $\hat{A}_1, \ldots, \hat{A}_T$
+        \STATE Run policy $$\pi_{\theta_{\text{old}}}$$ in environment for $$T$$ timesteps
+        \STATE Compute advantage estimates $$\hat{A}_1, \ldots, \hat{A}_T$$
     \ENDFOR
-    \STATE Optimize surrogate $L$ w.r.t.\ $\theta$, with $K$ epochs and minibatch size $M \le NT$
-    \STATE $\theta_{\text{old}} \leftarrow \theta$
+    \STATE Optimize surrogate $$L$$ w.r.t.\ $$\theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
+    \STATE $$\theta_{\text{old}} \leftarrow \theta$$
 \ENDFOR
 
-\begin{algorithm}
-\caption{Quicksort}
-\begin{algorithmic}
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p < r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-\PROCEDURE{Partition}{$$A, p, r$$}
-    \STATE $$x = A[r]$$
-    \STATE $$i = p - 1$$
-    \FOR{$$j = p$$ \TO $$r - 1$$}
-        \IF{$$A[j] < x$$}
-            \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
-        \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
-    \ENDFOR
-\ENDPROCEDURE
 \end{algorithmic}
 \end{algorithm}
 ```
