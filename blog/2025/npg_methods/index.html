@@ -4,48 +4,15 @@
 \caption{PPO, Actor--Critic Style}
 \begin{algorithmic}
 
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p &lt; r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-
-\end{algorithmic}
-\end{algorithm}
-</code></pre> <pre><code class="language-pseudocode">
 \FOR{iteration = 1, 2, \ldots}
     \FOR{actor = 1, 2, \ldots, N}
-        \STATE Run policy $\pi_{\theta_{\text{old}}}$ in environment for $T$ timesteps
-        \STATE Compute advantage estimates $\hat{A}_1, \ldots, \hat{A}_T$
+        \STATE Run policy $$\pi_{\theta_{\text{old}}}$$ in environment for $$T$$ timesteps
+        \STATE Compute advantage estimates $$\hat{A}_1, \ldots, \hat{A}_T$$
     \ENDFOR
-    \STATE Optimize surrogate $L$ w.r.t.\ $\theta$, with $K$ epochs and minibatch size $M \le NT$
-    \STATE $\theta_{\text{old}} \leftarrow \theta$
+    \STATE Optimize surrogate $$L$$ w.r.t.\ $$\theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
+    \STATE $$\theta_{\text{old}} \leftarrow \theta$$
 \ENDFOR
 
-\begin{algorithm}
-\caption{Quicksort}
-\begin{algorithmic}
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p &lt; r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-\PROCEDURE{Partition}{$$A, p, r$$}
-    \STATE $$x = A[r]$$
-    \STATE $$i = p - 1$$
-    \FOR{$$j = p$$ \TO $$r - 1$$}
-        \IF{$$A[j] &lt; x$$}
-            \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
-        \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
-    \ENDFOR
-\ENDPROCEDURE
 \end{algorithmic}
 \end{algorithm}
 </code></pre> <h2 id="references">References</h2> <ul> <li>(<a href="https://arxiv.org/pdf/1502.05477" rel="external nofollow noopener" target="_blank">Schulman et al., 2015</a>)</li> <li>(<a href="https://arxiv.org/pdf/1707.06347" rel="external nofollow noopener" target="_blank">Schulman et al., 2017</a>)</li> <li>(<a href="https://www.andrew.cmu.edu/course/10-703/slides/Lecture_NaturalPolicyGradientsTRPOPPO.pdf" rel="external nofollow noopener" target="_blank">Carnegie Mellon, Natural Policy Gradients</a>)</li> <li>(<a href="https://spinningup.openai.com/en/latest/algorithms/trpo.html#trust-region-policy-optimization" rel="external nofollow noopener" target="_blank">OpenAI Spinning Up</a>)</li> </ul> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/arastunm/blog/2025/ddqn/">Deep Q-Learning</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/arastunm/blog/2025/transformers/">Transformer Architecture</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/arastunm/blog/2025/dl_core/">Deep Learning</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/arastunm/blog/2025/vpg_methods/">Vanilla Policy Gradient Methods</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/arastunm/blog/2025/llm_training_taxonomy/">LLM Fine-Tuning Taxonomy</a> </li> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2025 Arastun Mammadli. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/arastunm/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/arastunm/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/arastunm/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/arastunm/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/arastunm/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/arastunm/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script> <script defer src="/arastunm/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/arastunm/assets/js/pseudocode-setup.js?72ed28a041e322f764b0d9c59cf428b5"></script> <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.js" integrity="sha256-aVkDxqyzrB+ExUsOY9PdyelkDhn/DfrjWu08aVpqNlo=" crossorigin="anonymous"></script> <script defer src="/arastunm/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/arastunm/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>
