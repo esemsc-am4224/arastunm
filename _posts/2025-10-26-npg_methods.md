@@ -138,18 +138,19 @@ Below pseudocode shows a PPO algorithm that uses fixed-length trajectory segment
 \caption{PPO, Actor--Critic Style}
 \begin{algorithmic}
 
-\FOR{iteration = 1, 2, \ldots}
-    \FOR{actor = 1, 2, \ldots, N}
+\FOR{iteration = $$1, 2, \ldots$$}
+    \FOR{actor = $$1, 2, \ldots, N$$}
         \STATE Run policy $$\pi_{\theta_{\text{old}}}$$ in environment for $$T$$ timesteps
         \STATE Compute advantage estimates $$\hat{A}_1, \ldots, \hat{A}_T$$
     \ENDFOR
-    \STATE Optimize surrogate $$L$$ w.r.t.\ $$\theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
+    \STATE Optimise surrogate $$L w.r.t.\ \theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
     \STATE $$\theta_{\text{old}} \leftarrow \theta$$
 \ENDFOR
 
 \end{algorithmic}
 \end{algorithm}
 ```
+
 
 
 ## References
