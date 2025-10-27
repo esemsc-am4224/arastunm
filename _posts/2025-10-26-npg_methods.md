@@ -143,7 +143,7 @@ Below pseudocode shows a PPO algorithm that uses fixed-length trajectory segment
         \STATE Run policy $$\pi_{\theta_{\text{old}}}$$ in environment for $$T$$ timesteps
         \STATE Compute advantage estimates $$\hat{A}_1, \ldots, \hat{A}_T$$
     \ENDFOR
-    \STATE Optimise surrogate $$L w.r.t.\ \theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
+    \STATE Optimise surrogate $$L w.r.t. \theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
     \STATE $$\theta_{\text{old}} \leftarrow \theta$$
 \ENDFOR
 
@@ -151,6 +151,24 @@ Below pseudocode shows a PPO algorithm that uses fixed-length trajectory segment
 \end{algorithm}
 ```
 
+
+```pseudocode
+\begin{algorithm}
+\caption{PPO, Actor--Critic Style}
+\begin{algorithmic}
+\PROCEDURE{PPO}{}
+    \FOR{iteration = $$1, 2, \ldots$$}
+        \FOR{actor = $$1, 2, \ldots, N$$}
+            \STATE Run policy $$\pi_{\theta_{\text{old}}}$$ in environment for $$T$$ timesteps
+            \STATE Compute advantage estimates $$\hat{A}_1, \ldots, \hat{A}_T$$
+        \ENDFOR
+        \STATE Optimise surrogate $$L w.r.t. \theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
+        \STATE $$\theta_{\text{old}} \leftarrow \theta$$
+    \ENDFOR
+\ENDPROCEDURE
+\end{algorithmic}
+\end{algorithm}
+```
 
 
 ## References
