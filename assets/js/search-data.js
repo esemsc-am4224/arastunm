@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-natural-policy-gradient-methods",
+        },{id: "post-multi-armed-bandit-problems",
+      
+        title: "Multi-Armed Bandit Problems",
+      
+      description: "Bandit Strategies, UCB1, Bayesian UCB, Thompson Sampling",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/mab_problems/";
+        
+      },
+    },{id: "post-natural-policy-gradient-methods",
       
         title: "Natural Policy Gradient Methods",
       
