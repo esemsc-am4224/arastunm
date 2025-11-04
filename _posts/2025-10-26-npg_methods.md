@@ -133,25 +133,11 @@ $$
 
 Below pseudocode shows a PPO algorithm that uses fixed-length trajectory segments. Each iteration, each of $N$ (parallel) actors collect $T$ timesteps of data. Then we construct the surrogate loss on these $NT$ timesteps of data, and optimise it with minibatch SGD (or Adam) for $K$ epochs.
 
-```pseudocode
-\begin{algorithm}
-\caption{PPO, Actor-Critic Style}
-\begin{algorithmic}
-
-\PROCEDURE{PPO}{}
-    \FOR{$$1, 2, \ldots$$}
-        \FOR{$$1, 2, \ldots, N$$}
-            \STATE Run policy $$\pi_{\theta_{\text{old}}}$$ in environment for $$T$$ timesteps
-            \STATE Compute advantage estimates $$\hat{A}_1, \ldots, \hat{A}_T$$
-        \ENDFOR
-        \STATE Optimise surrogate $$L w.r.t. \theta$$, with $$K$$ epochs and minibatch size $$M \le NT$$
-        \STATE $$\theta_{\text{old}} \leftarrow \theta$$
-    \ENDFOR
-\ENDPROCEDURE
-
-\end{algorithmic}
-\end{algorithm}
-```
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/ppo_pseu.png" height="300" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 ## References
 
