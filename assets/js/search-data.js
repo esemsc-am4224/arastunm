@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-multi-armed-bandit-problems",
+        },{id: "post-curriculum-learning-methods",
+      
+        title: "Curriculum Learning Methods",
+      
+      description: "Task-Specific, Teacher-Guided, Self-Play, Automatic Goal Generation",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/curriculum/";
+        
+      },
+    },{id: "post-multi-armed-bandit-problems",
       
         title: "Multi-Armed Bandit Problems",
       
