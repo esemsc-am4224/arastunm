@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/arastunm/cv/";
           },
-        },{id: "post-curriculum-learning-methods",
+        },{id: "post-bayesian-networks",
+      
+        title: "Bayesian Networks",
+      
+      description: "Network Representation, D-Separation, Inference, Sampling",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/arastunm/blog/2025/bn/";
+        
+      },
+    },{id: "post-curriculum-learning-methods",
       
         title: "Curriculum Learning Methods",
       
