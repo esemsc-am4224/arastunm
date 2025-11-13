@@ -117,13 +117,13 @@ $$
 $$
 
 $$
-R^g(\pi) = \mathbb{E}_{\pi} (\dot \mid s_t, g) \textbf{1} [\exists t \in [1, \dots, T] : s_t \in S^g]
+R^g(\pi) = \mathbb{E}_{\pi} (\cdot \mid s_t, g) \textbf{1} [\exists t \in [1, \dots, T] : s_t \in S^g]
 $$
 
 Given sampled trajectories from current policy $\pi$, as long as any state belongs to the goal set, the return will be positive. This approach iterates through 3 steps until policy convergence. First (1), label a set of goals based on appropriate level of difficulty for the curent $\pi$ named **GOID** (goals of intermediate difficulty). Here $R_{min}$ and $R_{max}$ are minimum and maximum probability of reaching a goal over $T$ time-steps.
 
 $$
-GOID_i \coloneqq {g: R_{min} \leq R^g(\pi_i) \leq R_{max}} \subseteq G
+GOID_i := {g: R_{min} \leq R^g(\pi_i) \leq R_{max}} \subseteq G
 $$
 
 Then (2) we train a Goal GAN model using labelled goals to produce new goals, and finally (3) use these goals to train the policy improving the coverage obejctive. Generator $G(z)$ produces a new goal expected to be uniformly sampled from GOID set. Discriminator $D(g)$ evaluates whether the goal can be achieved (whether it is indeed from the GOID set). The Goal GAN is constructed similar to LSGAN (Least-Squared GAN) which has better stability compared to vanilla GAN. According to LSGAN we should minimise following losses for $D$ and $G$ respectively. Here $a$ is the label for fake data, $b$ for real data, $c$ is the value that $G$ wants $D$ to believe for fake data (by default $a = -1, b = 1, c = 0$). 

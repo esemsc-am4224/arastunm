@@ -6,7 +6,6 @@ description: General overview of TRPO and PPO
 thumbnail: assets/img/blogs/trpo.png
 tags: theory
 categories: sample-posts
-pseudocode: true
 ---
 
 - [Introduction](#introduction)
